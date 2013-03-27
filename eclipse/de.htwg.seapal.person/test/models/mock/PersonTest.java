@@ -16,7 +16,7 @@ public class PersonTest {
 
 	@Test
 	public void testGetName() {
-		assertEquals("Titanic", person.getName());
+		assertEquals("Titanic", person.getFirstname());
 	}
 
 }

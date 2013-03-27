@@ -27,14 +27,14 @@ public class PersonTUI implements IObserver{
 		}
 		if (line.equalsIgnoreCase("n")) {
 			Scanner scanner = new Scanner(System.in);
-			controller.setBoatName(scanner.next());
+			controller.setPersonFirstname(scanner.next());
 		}
 		return continu;
 	}
 	
 	public void printTUI() {
 		System.out.println("BoatDemo: n - new Name");
-		System.out.println(controller.getString());
+		System.out.println(controller.getPersonFirstname());
 		
 	}
 

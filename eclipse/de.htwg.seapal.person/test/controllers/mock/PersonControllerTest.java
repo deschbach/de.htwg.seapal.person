@@ -28,8 +28,8 @@ public class PersonControllerTest {
 
 	@Test
 	public void testGetBoatName() {
-		personController.setBoatName("BullshitName-ShouldNotShowUp");
-		assertEquals("Titanic", personController.getBoatName());
+		personController.setPersonFirstname("BullshitName-ShouldNotShowUp");
+		assertEquals("Titanic", personController.getPersonFirstname());
 	}
 
 }

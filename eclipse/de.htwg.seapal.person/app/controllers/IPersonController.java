@@ -1,13 +1,39 @@
 package controllers;
 
+import java.util.Date;
+
 import util.observer.IObservable;
 
 public interface IPersonController extends IObservable{
-
-	void setBoatName(String string);
 	
-	String getBoatName();
-
-	String getString();
+	String getPersonFirstname();
+	void setPersonFirstname(String firstname);
+	
+	String getPersonLastname();
+	void setPersonLastname(String lastname);
+	
+	public Date getPersonBirth();
+	void setPersonBirth(Date birth);
+	
+	int getPersonAge();
+	void setPersonAge(int age);
+	
+	public String getPersonEmail();
+	void setPersonEmail(String email);
+	
+	String getPersonTelephone();
+	void setPersonTelephone(String telephone);
+	
+	String getPersonMobile();
+	void setPersonMobile(String mobile);
+	
+	String getPersonStreet();
+	void setPersonStreet(String street);
+	
+	int getPersonPostcode();
+	void setPersonPostcode(int postcode);
+	
+	String getPersonCity();
+	void setPersonCity(String city);
 
 }

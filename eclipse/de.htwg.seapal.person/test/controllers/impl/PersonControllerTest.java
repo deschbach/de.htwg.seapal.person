@@ -27,8 +27,8 @@ public class PersonControllerTest {
 
 	@Test
 	public void testGetBoatName() {
-		personController.setBoatName("Xpresso");
-		assertEquals("Xpresso", personController.getBoatName());
+		personController.setPersonFirstname("Xpresso");
+		assertEquals("Xpresso", personController.getPersonFirstname());
 	}
 
 }

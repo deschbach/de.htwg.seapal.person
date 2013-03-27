@@ -16,8 +16,8 @@ public class PersonTest {
 
 	@Test
 	public void testGetName() {
-		person.setName("Xpresso");
-		assertEquals("Xpresso", person.getName());
+		person.setFirstname("Xpresso");
+		assertEquals("Xpresso", person.getFirstname());
 	}
 
 }
