@@ -5,11 +5,11 @@ import java.util.Scanner;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-import views.tui.BoatTUI;
-import controllers.IBoatController;
+import views.tui.PersonTUI;
+import controllers.IPersonController;
 
 
-public class BoatDemo {
+public class PersonDemo {
 
 	/**
 	 * @param args
@@ -17,12 +17,12 @@ public class BoatDemo {
 	public static void main(String[] args) {
 		
 		// Set up Google Guice Dependency Injector
-		Injector injector = Guice.createInjector(new BoatDemoImplModule());
+		Injector injector = Guice.createInjector(new PersonDemoImplModule());
 		
 		// Build up the application, resolving dependencies automatically by Guice
-		IBoatController controller = injector.getInstance(IBoatController.class);
+		IPersonController controller = injector.getInstance(IPersonController.class);
 
-		BoatTUI tui = new BoatTUI(controller);
+		PersonTUI tui = new PersonTUI(controller);
 
 		tui.printTUI();
 		// continue to read user input on the tui until the user decides to quit

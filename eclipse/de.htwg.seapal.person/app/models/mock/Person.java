@@ -1,8 +1,8 @@
 package models.mock;
 
-import models.IBoat;
+import models.IPerson;
 
-public class Boat implements IBoat{
+public class Person implements IPerson{
 
 	public String getName() {
 		return "Titanic";

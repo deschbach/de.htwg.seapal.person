@@ -5,19 +5,19 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class BoatTest {
+public class PersonTest {
 
-	private Boat boat;
+	private Person person;
 	
 	@Before
 	public void setup() {
-		boat = new Boat();
+		person = new Person();
 	}
 
 	@Test
 	public void testGetName() {
-		boat.setName("Xpresso");
-		assertEquals("Xpresso", boat.getName());
+		person.setName("Xpresso");
+		assertEquals("Xpresso", person.getName());
 	}
 
 }

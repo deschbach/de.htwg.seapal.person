@@ -2,16 +2,16 @@ package views.tui;
 
 import java.util.Scanner;
 
-import controllers.IBoatController;
+import controllers.IPersonController;
 import util.observer.Event;
 import util.observer.IObserver;
 
 
-public class BoatTUI implements IObserver{
+public class PersonTUI implements IObserver{
 	
-	private IBoatController controller;
+	private IPersonController controller;
 
-	public BoatTUI(IBoatController controller) {
+	public PersonTUI(IPersonController controller) {
 		this.controller = controller;
 		controller.addObserver(this);
 	}

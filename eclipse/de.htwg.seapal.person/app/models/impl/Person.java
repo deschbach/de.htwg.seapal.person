@@ -1,8 +1,8 @@
 package models.impl;
 
-import models.IBoat;
+import models.IPerson;
 
-public class Boat implements IBoat{
+public class Person implements IPerson{
 
 	private String name="n.a.";
 
