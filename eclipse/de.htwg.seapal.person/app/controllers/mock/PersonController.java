@@ -60,6 +60,17 @@ public class PersonController extends Observable implements IPersonController{
 		person.setAge(age);
 		notifyObservers();
 	}
+	
+	@Override
+	public String getPersonNationality() {
+		return person.getNationality();
+	}
+
+	@Override
+	public void setPersonNationality(String nationality) {
+		person.setNationality(nationality);
+		notifyObservers();
+	}
 
 	@Override
 	public String getPersonEmail() {
@@ -125,6 +136,22 @@ public class PersonController extends Observable implements IPersonController{
 	public void setPersonCity(String city) {
 		person.setCity(city);
 		notifyObservers();
+	}
+	
+	@Override
+	public String getPersonCountry() {
+		return person.getCountry();
+	}
+
+	@Override
+	public void setPersonCountry(String country) {
+		person.setCountry(country);
+		notifyObservers();
+	}
+
+	@Override
+	public String getPersonString() {
+		return person.getString();
 	}
 
 }

@@ -16,6 +16,9 @@ public interface IPerson {
 	int getAge();
 	void setAge(int age);
 	
+	String getNationality();
+	void setNationality(String nationality);
+	
 	public String getEmail();
 	void setEmail(String email);
 	
@@ -36,5 +39,7 @@ public interface IPerson {
 	
 	String getCountry();
 	void setCountry(String country);
+	
+	String getString();
 	
 }

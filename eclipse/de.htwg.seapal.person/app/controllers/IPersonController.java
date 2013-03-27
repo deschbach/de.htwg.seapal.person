@@ -18,6 +18,9 @@ public interface IPersonController extends IObservable{
 	int getPersonAge();
 	void setPersonAge(int age);
 	
+	String getPersonNationality();
+	void setPersonNationality(String nationality);
+	
 	public String getPersonEmail();
 	void setPersonEmail(String email);
 	
@@ -35,5 +38,10 @@ public interface IPersonController extends IObservable{
 	
 	String getPersonCity();
 	void setPersonCity(String city);
+	
+	String getPersonCountry();
+	void setPersonCountry(String country);
 
+	String getPersonString();
+	
 }
