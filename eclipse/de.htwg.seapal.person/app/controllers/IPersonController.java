@@ -15,6 +15,9 @@ public interface IPersonController extends IObservable{
 	public Date getPersonBirth();
 	void setPersonBirth(Date birth);
 	
+	public Date getPersonRegistration();
+	void setPersonRegistration(Date registration);
+	
 	int getPersonAge();
 	void setPersonAge(int age);
 	

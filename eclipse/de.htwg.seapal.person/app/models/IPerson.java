@@ -13,6 +13,9 @@ public interface IPerson {
 	public Date getBirth();
 	void setBirth(Date birth);
 	
+	public Date getRegistration();
+	void setRegistration(Date registration);
+	
 	int getAge();
 	void setAge(int age);
 	

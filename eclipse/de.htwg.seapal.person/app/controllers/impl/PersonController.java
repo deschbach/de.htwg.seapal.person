@@ -49,6 +49,17 @@ public class PersonController extends Observable implements IPersonController {
 		person.setBirth(birth);
 		notifyObservers();
 	}
+	
+	@Override
+	public Date getPersonRegistration() {
+		return person.getRegistration();
+	}
+
+	@Override
+	public void setPersonRegistration(Date registration) {
+		person.setRegistration(registration);
+		notifyObservers();
+	}
 
 	@Override
 	public int getPersonAge() {

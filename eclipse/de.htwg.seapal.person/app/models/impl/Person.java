@@ -1,5 +1,7 @@
 package models.impl;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import models.IPerson;
@@ -9,7 +11,8 @@ public class Person implements IPerson{
 	private String firstname = null;
 	private String lastname= null;
 
-	private Date birth = null;
+	private Date birth;
+	private Date registration;
 	private int age = 0;
 	private String nationality = null;
 	
@@ -21,6 +24,16 @@ public class Person implements IPerson{
 	private int postcode = 0;
 	private String city = null;
 	private String country = null;
+	
+	public Person() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+		try {
+			this.birth = dateFormat.parse("00.00.0000");
+			this.registration = dateFormat.parse("00.00.0000");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public String getFirstname() {
 		return firstname;
@@ -44,6 +57,14 @@ public class Person implements IPerson{
 	
 	public void setBirth(Date birth) {
 		this.birth = birth;
+	}
+	
+	public Date getRegistration() {
+		return registration;
+	}
+
+	public void setRegistration(Date registration) {
+		this.registration = registration;
 	}
 	
 	public int getAge() {
@@ -123,9 +144,12 @@ public class Person implements IPerson{
 		
 		StringBuilder sb = new StringBuilder();
 		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+		
 		sb.append("Firstname: \t").append(this.getFirstname()).append("\n");
 		sb.append("Lastname: \t").append(this.getLastname()).append("\n");
-		sb.append("Birth: \t\t").append(this.getBirth()).append("\n");
+		sb.append("Birth: \t\t").append(dateFormat.format(this.getBirth())).append("\n");
+		sb.append("Registration: \t").append(dateFormat.format(this.getRegistration())).append("\n");
 		sb.append("Age: \t\t").append(this.getAge()).append("\n");
 		sb.append("Nationality: \t").append(this.getNationality()).append("\n");
 		sb.append("Email: \t\t").append(this.getEmail()).append("\n");

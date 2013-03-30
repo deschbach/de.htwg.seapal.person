@@ -1,5 +1,6 @@
 package app;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 import com.google.inject.Guice;
@@ -13,11 +14,12 @@ public class PersonDemo {
 
 	/**
 	 * @param args
+	 * @throws ParseException 
 	 */
 	public static void main(String[] args) {
 		
 		// Set up Google Guice Dependency Injector
-		Injector injector = Guice.createInjector(new PersonDemoMockModule());
+		Injector injector = Guice.createInjector(new PersonDemoImplModule());
 		
 		// Build up the application, resolving dependencies automatically by Guice
 		IPersonController controller = injector.getInstance(IPersonController.class);

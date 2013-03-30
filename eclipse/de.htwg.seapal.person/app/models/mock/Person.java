@@ -1,5 +1,7 @@
 package models.mock;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import models.IPerson;
 
@@ -20,10 +22,31 @@ public class Person implements IPerson{
 	}
 	
 	public Date getBirth() {
-		return new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+		Date date = null;
+		try {
+			date = dateFormat.parse("00.00.0000");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return date;
 	}
 	
 	public void setBirth(Date birth) {
+	}
+	
+	public Date getRegistration() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+		Date date = null;
+		try {
+			date = dateFormat.parse("00.00.0000");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return date;
+	}
+
+	public void setRegistration(Date registration) {
 	}
 	
 	public int getAge() {
@@ -41,28 +64,28 @@ public class Person implements IPerson{
 	}
 	
 	public String getEmail() {
-		return "Max.Mustermann@domain.com";
+		return "max.musterman@domain.de";
 	}
 	
 	public void setEmail(String email) {
 	}
 	
 	public String getTelephone() {
-		return "1234/56789";
+		return "0123/4567890";
 	}
 	
 	public void setTelephone(String telephone) {
 	}
 	
 	public String getMobile() {
-		return "9876/54321";
+		return "0987/6543210";
 	}
 	
 	public void setMobile(String mobile) {
 	}
 	
 	public String getStreet() {
-		return "Parkerstreet 12";
+		return "Musterstraße 1";
 	}
 	
 	public void setStreet(String street) {
@@ -76,14 +99,14 @@ public class Person implements IPerson{
 	}
 	
 	public String getCity() {
-		return "London";
+		return "Musterstadt";
 	}
 	
 	public void setCity(String city) {
 	}
 	
 	public String getCountry() {
-		return "England";
+		return "Germany";
 	}
 	
 	public void setCountry(String country) {
@@ -94,9 +117,12 @@ public class Person implements IPerson{
 		
 		StringBuilder sb = new StringBuilder();
 		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+		
 		sb.append("Firstname: \t").append(this.getFirstname()).append("\n");
 		sb.append("Lastname: \t").append(this.getLastname()).append("\n");
-		sb.append("Birth: \t\t").append(this.getBirth()).append("\n");
+		sb.append("Birth: \t\t").append(dateFormat.format(this.getBirth())).append("\n");
+		sb.append("Registration: \t").append(dateFormat.format(this.getRegistration())).append("\n");
 		sb.append("Age: \t\t").append(this.getAge()).append("\n");
 		sb.append("Nationality: \t").append(this.getNationality()).append("\n");
 		sb.append("Email: \t\t").append(this.getEmail()).append("\n");

@@ -1,10 +1,11 @@
 package views.tui;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
 import controllers.IPersonController;
-import scala.util.parsing.combinator.testing.Number;
 import util.observer.Event;
 import util.observer.IObserver;
 
@@ -43,10 +44,41 @@ public class PersonTUI implements IObserver{
 		}
 		
 		if (line.equalsIgnoreCase("b")) {
-			System.out.print("Birth: ");
+			System.out.print("Birth (dd.mm.yyyy): ");
+			
 			Scanner scanner = new Scanner(System.in);
-			Date date = new Date(scanner.next());
+			String input = scanner.next();
+			
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+			
+			Date date = null;
+			
+			try {
+				date = dateFormat.parse(input);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			
 			controller.setPersonBirth(date);
+		}
+		
+		if (line.equalsIgnoreCase("r")) {
+			System.out.print("Registration (dd.mm.yyyy): ");
+			
+			Scanner scanner = new Scanner(System.in);
+			String input = scanner.next();
+			
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+			
+			Date date = null;
+			
+			try {
+				date = dateFormat.parse(input);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			
+			controller.setPersonRegistration(date);
 		}
 		
 		if (line.equalsIgnoreCase("a")) {
@@ -113,6 +145,7 @@ public class PersonTUI implements IObserver{
 		System.out.println("f - set Firstname");
 		System.out.println("l - set Lastname");
 		System.out.println("b - set Birth");
+		System.out.println("r - set Registration");
 		System.out.println("a - set Age");
 		System.out.println("n - set Nationality");
 		System.out.println("e - set Email");
