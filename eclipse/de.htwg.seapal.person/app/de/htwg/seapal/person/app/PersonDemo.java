@@ -18,7 +18,7 @@ public class PersonDemo {
 	 */
 	public static void main(String[] args) {
 		
-		// Set up Google Guice Dependency Injector
+		// Set up Google Guice DI
 		Injector injector = Guice.createInjector(new PersonDemoImplModule());
 		
 		// Build up the application, resolving dependencies automatically by Guice
