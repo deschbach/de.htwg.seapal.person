@@ -34,7 +34,8 @@ public class PersonDemo {
 		while (continu) {
 			continu = tui.processInputLine(scanner.next());
 		}
-
+		
+		scanner.close();
 	}
 
 }

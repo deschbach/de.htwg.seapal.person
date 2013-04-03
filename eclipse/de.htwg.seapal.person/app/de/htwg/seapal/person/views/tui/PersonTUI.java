@@ -35,12 +35,14 @@ public class PersonTUI implements IObserver{
 			System.out.print("Firstname: ");
 			Scanner scanner = new Scanner(System.in);
 			controller.setPersonFirstname(scanner.next());
+			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("l")) {
 			System.out.print("Lastname: ");
 			Scanner scanner = new Scanner(System.in);
 			controller.setPersonLastname(scanner.next());
+			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("b")) {
@@ -60,6 +62,7 @@ public class PersonTUI implements IObserver{
 			}
 			
 			controller.setPersonBirth(date);
+			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("r")) {
@@ -79,6 +82,7 @@ public class PersonTUI implements IObserver{
 			}
 			
 			controller.setPersonRegistration(date);
+			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("a")) {
@@ -86,36 +90,42 @@ public class PersonTUI implements IObserver{
 			Scanner scanner = new Scanner(System.in);
 			Integer age = new Integer(scanner.next());
 			controller.setPersonAge(age.intValue());
+			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("n")) {
 			System.out.print("Nationality: ");
 			Scanner scanner = new Scanner(System.in);
 			controller.setPersonNationality(scanner.next());
+			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("e")) {
 			System.out.print("Email: ");
 			Scanner scanner = new Scanner(System.in);
 			controller.setPersonEmail(scanner.next());
+			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("t")) {
 			System.out.print("Telephone: ");
 			Scanner scanner = new Scanner(System.in);
 			controller.setPersonTelephone(scanner.next());
+			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("m")) {
 			System.out.print("Mobile: ");
 			Scanner scanner = new Scanner(System.in);
 			controller.setPersonMobile(scanner.next());
+			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("s")) {
 			System.out.print("Street: ");
 			Scanner scanner = new Scanner(System.in);
 			controller.setPersonStreet(scanner.next());
+			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("p")) {
@@ -123,18 +133,21 @@ public class PersonTUI implements IObserver{
 			Scanner scanner = new Scanner(System.in);
 			Integer postcode = new Integer(scanner.next());
 			controller.setPersonPostcode(postcode.intValue());
+			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("c")) {
 			System.out.print("City: ");
 			Scanner scanner = new Scanner(System.in);
 			controller.setPersonCity(scanner.next());
+			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("o")) {
 			System.out.print("Country: ");
 			Scanner scanner = new Scanner(System.in);
 			controller.setPersonCountry(scanner.next());
+			scanner.close();
 		}
 
 		return continu;
