@@ -16,6 +16,7 @@ test-result
 server.pid
 *.iml
 *.eml
+*.class
 
 # Ignore Eclipse #
 *.pydevproject
