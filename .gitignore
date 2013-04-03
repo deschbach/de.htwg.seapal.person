@@ -16,3 +16,19 @@ test-result
 server.pid
 *.iml
 *.eml
+
+# Ignore Eclipse #
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
