@@ -10,9 +10,10 @@ import de.htwg.seapal.person.util.observer.Event;
 import de.htwg.seapal.person.util.observer.IObserver;
 
 
-public class PersonTUI implements IObserver{
+public class PersonTUI implements IObserver {
 	
 	private IPersonController controller;
+	private Scanner scanner;
 
 	public PersonTUI(IPersonController controller) {
 		this.controller = controller;
@@ -27,150 +28,128 @@ public class PersonTUI implements IObserver{
 		
 		boolean continu = true;
 		
+		scanner = new Scanner(System.in);
+		
 		if (line.equalsIgnoreCase("q")) {
 			continu = false;
 		}
 		
 		if (line.equalsIgnoreCase("f")) {
 			System.out.print("Firstname: ");
-			Scanner scanner = new Scanner(System.in);
 			controller.setPersonFirstname(scanner.next());
-			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("l")) {
 			System.out.print("Lastname: ");
-			Scanner scanner = new Scanner(System.in);
 			controller.setPersonLastname(scanner.next());
-			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("b")) {
 			System.out.print("Birth (dd.mm.yyyy): ");
 			
-			Scanner scanner = new Scanner(System.in);
-			String input = scanner.next();
-			
 			SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 			
 			Date date = null;
 			
 			try {
-				date = dateFormat.parse(input);
+				date = dateFormat.parse(scanner.next());
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
 			
 			controller.setPersonBirth(date);
-			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("r")) {
 			System.out.print("Registration (dd.mm.yyyy): ");
-			
-			Scanner scanner = new Scanner(System.in);
-			String input = scanner.next();
 			
 			SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 			
 			Date date = null;
 			
 			try {
-				date = dateFormat.parse(input);
+				date = dateFormat.parse(scanner.next());
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
 			
 			controller.setPersonRegistration(date);
-			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("a")) {
 			System.out.print("Age: ");
-			Scanner scanner = new Scanner(System.in);
 			Integer age = new Integer(scanner.next());
 			controller.setPersonAge(age.intValue());
-			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("n")) {
 			System.out.print("Nationality: ");
-			Scanner scanner = new Scanner(System.in);
 			controller.setPersonNationality(scanner.next());
-			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("e")) {
 			System.out.print("Email: ");
-			Scanner scanner = new Scanner(System.in);
 			controller.setPersonEmail(scanner.next());
-			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("t")) {
 			System.out.print("Telephone: ");
-			Scanner scanner = new Scanner(System.in);
 			controller.setPersonTelephone(scanner.next());
-			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("m")) {
 			System.out.print("Mobile: ");
-			Scanner scanner = new Scanner(System.in);
 			controller.setPersonMobile(scanner.next());
-			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("s")) {
 			System.out.print("Street: ");
-			Scanner scanner = new Scanner(System.in);
-			controller.setPersonStreet(scanner.next());
-			scanner.close();
+			controller.setPersonStreet(scanner.nextLine());
 		}
 		
 		if (line.equalsIgnoreCase("p")) {
 			System.out.print("Postcode: ");
-			Scanner scanner = new Scanner(System.in);
 			Integer postcode = new Integer(scanner.next());
 			controller.setPersonPostcode(postcode.intValue());
-			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("c")) {
 			System.out.print("City: ");
-			Scanner scanner = new Scanner(System.in);
 			controller.setPersonCity(scanner.next());
-			scanner.close();
 		}
 		
 		if (line.equalsIgnoreCase("o")) {
 			System.out.print("Country: ");
-			Scanner scanner = new Scanner(System.in);
 			controller.setPersonCountry(scanner.next());
-			scanner.close();
 		}
-
+		
 		return continu;
 	}
 	
 	public void printTUI() {
-		System.out.println("PersonDemo: ");
-		System.out.println("f - set Firstname");
-		System.out.println("l - set Lastname");
-		System.out.println("b - set Birth");
-		System.out.println("r - set Registration");
-		System.out.println("a - set Age");
-		System.out.println("n - set Nationality");
-		System.out.println("e - set Email");
-		System.out.println("t - set Telephone");
-		System.out.println("m - set Mobile");
-		System.out.println("s - set Street");
-		System.out.println("p - set Postcode");
-		System.out.println("c - set City");
-		System.out.println("o - set Country");
-		System.out.println();
-		System.out.println(controller.getPersonString());
-		System.out.print("Command: ");
+		
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("PersonDemo: ").append("\n");
+		sb.append("f - set Firstname").append("\n");
+		sb.append("l - set Lastname").append("\n");
+		sb.append("b - set Birth").append("\n");
+		sb.append("r - set Registration").append("\n");
+		sb.append("a - set Age").append("\n");
+		sb.append("n - set Nationality").append("\n");
+		sb.append("e - set Email").append("\n");
+		sb.append("t - set Telephone").append("\n");
+		sb.append("m - set Mobile").append("\n");
+		sb.append("s - set Street").append("\n");
+		sb.append("p - set Postcode").append("\n");
+		sb.append("c - set City").append("\n");
+		sb.append("o - set Country").append("\n");
+		sb.append("\n");
+		sb.append(controller.getPersonString());
+		sb.append("\n");
+		sb.append("Command: ");
+		
+		System.out.print(sb.toString());
 	}
 
 }
