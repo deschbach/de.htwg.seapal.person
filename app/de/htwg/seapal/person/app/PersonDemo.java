@@ -1,14 +1,10 @@
 package de.htwg.seapal.person.app;
 
-import java.text.ParseException;
 import java.util.Scanner;
-
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-
-import de.htwg.seapal.person.controllers.IPersonController;
 import de.htwg.seapal.person.views.tui.PersonTUI;
-
+import de.htwg.seapal.person.controllers.IPersonController;
 
 public class PersonDemo {
 

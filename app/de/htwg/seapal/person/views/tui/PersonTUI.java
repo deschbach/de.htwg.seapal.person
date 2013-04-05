@@ -13,7 +13,6 @@ import de.htwg.seapal.person.util.observer.IObserver;
 public class PersonTUI implements IObserver {
 	
 	private IPersonController controller;
-	private Scanner scanner;
 
 	public PersonTUI(IPersonController controller) {
 		this.controller = controller;
@@ -28,7 +27,7 @@ public class PersonTUI implements IObserver {
 		
 		boolean continu = true;
 		
-		scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		
 		if (line.equalsIgnoreCase("q")) {
 			continu = false;
