@@ -13,10 +13,10 @@ public interface IPersonController extends IObservable{
 	String getPersonLastname();
 	void setPersonLastname(String lastname);
 	
-	public Date getPersonBirth();
+	Date getPersonBirth();
 	void setPersonBirth(Date birth);
 	
-	public Date getPersonRegistration();
+	Date getPersonRegistration();
 	void setPersonRegistration(Date registration);
 	
 	int getPersonAge();
@@ -25,7 +25,7 @@ public interface IPersonController extends IObservable{
 	String getPersonNationality();
 	void setPersonNationality(String nationality);
 	
-	public String getPersonEmail();
+	String getPersonEmail();
 	void setPersonEmail(String email);
 	
 	String getPersonTelephone();

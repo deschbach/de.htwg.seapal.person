@@ -10,10 +10,10 @@ public interface IPerson {
 	String getLastname();
 	void setLastname(String lastname);
 	
-	public Date getBirth();
+	Date getBirth();
 	void setBirth(Date birth);
 	
-	public Date getRegistration();
+	Date getRegistration();
 	void setRegistration(Date registration);
 	
 	int getAge();
@@ -22,7 +22,7 @@ public interface IPerson {
 	String getNationality();
 	void setNationality(String nationality);
 	
-	public String getEmail();
+	String getEmail();
 	void setEmail(String email);
 	
 	String getTelephone();
