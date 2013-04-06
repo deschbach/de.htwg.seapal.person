@@ -18,7 +18,7 @@ object ApplicationBuild extends Build {
     	javaEbean,
     	"de.htwg" % "util" % "1.0-SNAPSHOT",
     	"com.google.inject" % "guice" % "3.0",
-    	"com.google.inject.extensions" % "guice-multibindings" % "3.0",
+    	"com.google.inject.extensions" % "guice-multibindings" % "3.0"
  	)
  	
  	 // team component dependencies
