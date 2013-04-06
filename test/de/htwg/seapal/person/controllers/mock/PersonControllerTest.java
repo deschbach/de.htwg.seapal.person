@@ -43,32 +43,6 @@ public class PersonControllerTest {
 	}
 	
 	@Test
-	public void testGetPersonBirth() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-		Date date = null;
-		try {
-			date = dateFormat.parse("00.00.0000");
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		personController.setPersonBirth(date);
-		assertEquals(date, personController.getPersonBirth());
-	}
-	
-	@Test
-	public void testGetPersonRegistration() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-		Date date = null;
-		try {
-			date = dateFormat.parse("00.00.0000");
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		personController.setPersonRegistration(date);
-		assertEquals(date, personController.getPersonRegistration());
-	}
-	
-	@Test
 	public void testGetPersonAge() {
 		personController.setPersonAge(50);
 		assertEquals(50, personController.getPersonAge());
