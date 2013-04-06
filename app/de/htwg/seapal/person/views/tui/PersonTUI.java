@@ -27,97 +27,102 @@ public class PersonTUI implements IObserver {
 		
 		boolean continu = true;
 		
+		Date date = null;
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+		
+		char command = line.charAt(0);
+		
 		Scanner scanner = new Scanner(System.in);
 		
-		if (line.equalsIgnoreCase("q")) {
-			continu = false;
-		}
+		switch (command) {
 		
-		if (line.equalsIgnoreCase("f")) {
-			System.out.println("Firstname: ");
-			controller.setPersonFirstname(scanner.next());
-		}
-		
-		if (line.equalsIgnoreCase("l")) {
-			System.out.println("Lastname: ");
-			controller.setPersonLastname(scanner.next());
-		}
-		
-		if (line.equalsIgnoreCase("b")) {
-			System.out.println("Birth (dd.mm.yyyy): ");
+			case 'q':
+				continu = false;
+				break;
 			
-			SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+			case 'f':
+				System.out.println("Firstname: ");
+				controller.setPersonFirstname(scanner.next());
+				break;
+				
+			case 'l':
+				System.out.println("Lastname: ");
+				controller.setPersonLastname(scanner.next());
+				break;
+				
+			case 'b':
+				System.out.println("Birth (dd.mm.yyyy): ");
+								
+				try {
+					date = dateFormat.parse(scanner.next());
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				
+				controller.setPersonBirth(date);
+				break;
+				
+			case 'a':
+				System.out.println("Age: ");
+				controller.setPersonAge(Integer.valueOf(scanner.next()).intValue());
+				break;
+				
+			case 'r':
+				System.out.println("Registration (dd.mm.yyyy): ");
+				
+				try {
+					date = dateFormat.parse(scanner.next());
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				
+				controller.setPersonRegistration(date);
+				
+				break;
+	
+			case 'n':
+				System.out.println("Nationality: ");
+				controller.setPersonNationality(scanner.next());
+				break;
+				
+			case 'e':
+				System.out.println("Email: ");
+				controller.setPersonEmail(scanner.next());
+				break;
+				
+			case 't':
+				System.out.println("Telephone: ");
+				controller.setPersonTelephone(scanner.next());
+				break;
+				
+			case 'm':
+				System.out.println("Mobile: ");
+				controller.setPersonMobile(scanner.next());
+				break;
+				
+			case 's':
+				System.out.println("Street: ");
+				controller.setPersonStreet(scanner.nextLine());
+				break;
+				
+			case 'p':
+				System.out.println("Postcode: ");
+				controller.setPersonPostcode(Integer.valueOf(scanner.next()).intValue());
+				break;
+				
+			case 'c':
+				System.out.println("City: ");
+				controller.setPersonCity(scanner.next());
+				break;
+				
+			case 'o':
+				System.out.println("Country: ");
+				controller.setPersonCountry(scanner.next());
+				break;
+				
+			default:
+				System.out.println("Unknown Command! Pleas try again ...");
 			
-			Date date = null;
-			
-			try {
-				date = dateFormat.parse(scanner.next());
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-			
-			controller.setPersonBirth(date);
-		}
-		
-		if (line.equalsIgnoreCase("r")) {
-			System.out.println("Registration (dd.mm.yyyy): ");
-			
-			SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-			
-			Date date = null;
-			
-			try {
-				date = dateFormat.parse(scanner.next());
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-			
-			controller.setPersonRegistration(date);
-		}
-		
-		if (line.equalsIgnoreCase("a")) {
-			System.out.println("Age: ");
-			controller.setPersonAge(Integer.valueOf(scanner.next()).intValue());
-		}
-		
-		if (line.equalsIgnoreCase("n")) {
-			System.out.println("Nationality: ");
-			controller.setPersonNationality(scanner.next());
-		}
-		
-		if (line.equalsIgnoreCase("e")) {
-			System.out.println("Email: ");
-			controller.setPersonEmail(scanner.next());
-		}
-		
-		if (line.equalsIgnoreCase("t")) {
-			System.out.println("Telephone: ");
-			controller.setPersonTelephone(scanner.next());
-		}
-		
-		if (line.equalsIgnoreCase("m")) {
-			System.out.println("Mobile: ");
-			controller.setPersonMobile(scanner.next());
-		}
-		
-		if (line.equalsIgnoreCase("s")) {
-			System.out.println("Street: ");
-			controller.setPersonStreet(scanner.nextLine());
-		}
-		
-		if (line.equalsIgnoreCase("p")) {
-			System.out.println("Postcode: ");
-			controller.setPersonPostcode(Integer.valueOf(scanner.next()).intValue());
-		}
-		
-		if (line.equalsIgnoreCase("c")) {
-			System.out.println("City: ");
-			controller.setPersonCity(scanner.next());
-		}
-		
-		if (line.equalsIgnoreCase("o")) {
-			System.out.println("Country: ");
-			controller.setPersonCountry(scanner.next());
 		}
 		
 		return continu;
