@@ -2,14 +2,16 @@ package de.htwg.seapal.person.views.tui;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
+import de.htwg.util.plugin.Plugin;
 import de.htwg.seapal.person.controllers.IPersonController;
 import de.htwg.seapal.person.util.observer.Event;
 import de.htwg.seapal.person.util.observer.IObserver;
 
 
-public class PersonTUI implements IObserver {
+public class PersonTUI implements IObserver, Plugin {
 	
 	private IPersonController controller;
 
@@ -18,15 +20,15 @@ public class PersonTUI implements IObserver {
 		controller.addObserver(this);
 	}
 
+	@Override
 	public void update(Event e) {
 		printTUI();
 	}
 
-	public boolean processInputLine(String line) throws ParseException {
+	@Override
+	public boolean processInputLine(String line) {
 		
 		boolean continu = true;
-		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 		
 		char command = line.charAt(0);
 		
@@ -48,7 +50,7 @@ public class PersonTUI implements IObserver {
 				break;
 				
 			case 'b':
-				controller.setPersonBirth(dateFormat.parse(scanner.next()));
+				controller.setPersonBirth(parseDate(scanner.next()));
 				break;
 				
 			case 'a':
@@ -56,7 +58,7 @@ public class PersonTUI implements IObserver {
 				break;
 				
 			case 'r':
-				controller.setPersonRegistration(dateFormat.parse(scanner.next()));
+				controller.setPersonRegistration(parseDate(scanner.next()));
 				break;
 	
 			case 'n':
@@ -93,12 +95,12 @@ public class PersonTUI implements IObserver {
 				
 			default:
 				System.out.println("Unknown Command! Pleas try again ...");
-			
 		}
 		
 		return continu;
 	}
 	
+	@Override
 	public void printTUI() {
 		
 		StringBuilder sb = new StringBuilder();
@@ -123,6 +125,31 @@ public class PersonTUI implements IObserver {
 		sb.append("Command: ");
 		
 		System.out.print(sb.toString());
+	}
+
+	@Override
+	public String getMenuEntry() {
+		return "Person";
+	}
+
+	@Override
+	public char getMenuKey() {
+		return 'p';
+	}
+	
+	private Date parseDate(String input) {
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+		
+		Date date = null;
+		
+		try {
+			date = dateFormat.parse(input);
+		} catch (ParseException e) {
+			date = new Date();
+		}
+		
+		return date;
 	}
 
 }
