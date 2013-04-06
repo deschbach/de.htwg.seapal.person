@@ -1,12 +1,6 @@
 package de.htwg.seapal.person.controllers.mock;
 
 import static org.junit.Assert.*;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-
 import org.junit.Before;
 import org.junit.Test;
 

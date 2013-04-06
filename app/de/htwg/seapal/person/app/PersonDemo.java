@@ -9,6 +9,9 @@ import de.htwg.seapal.person.controllers.IPersonController;
 
 public class PersonDemo {
 
+	private PersonDemo() {
+	}
+	
 	/**
 	 * @param args
 	 * @throws ParseException 
