@@ -6,6 +6,9 @@ import de.htwg.seapal.person.models.AbstractPerson;
 
 public class Person extends AbstractPerson {
 	
+	private static final int AGE = 50;
+	private static final int POSTCODE = 12345;
+	
 	public String getFirstname() {
 		return "Max";
 	}
@@ -35,7 +38,7 @@ public class Person extends AbstractPerson {
 	}
 	
 	public int getAge() {
-		return 50;
+		return AGE;
 	}
 	
 	public void setAge(int age) {
@@ -77,7 +80,7 @@ public class Person extends AbstractPerson {
 	}
 	
 	public int getPostcode() {
-		return 12345;
+		return POSTCODE;
 	}
 	
 	public void setPostcode(int postcode) {

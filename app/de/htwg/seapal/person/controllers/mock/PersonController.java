@@ -10,7 +10,7 @@ public class PersonController extends AbstractPersonController {
 	
 	@Inject
 	public PersonController(IPerson person) {
-		this.person = person;
+		super.person = person;
 	}
 
 }
