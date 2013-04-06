@@ -7,7 +7,7 @@ import com.google.inject.Injector;
 import de.htwg.seapal.person.views.tui.PersonTUI;
 import de.htwg.seapal.person.controllers.IPersonController;
 
-public class PersonDemo {
+public final class PersonDemo {
 
 	private PersonDemo() {
 	}
