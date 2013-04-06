@@ -40,67 +40,54 @@ public class PersonTUI implements IObserver {
 				break;
 			
 			case 'f':
-				System.out.println("Firstname: ");
 				controller.setPersonFirstname(scanner.next());
 				break;
 				
 			case 'l':
-				System.out.println("Lastname: ");
 				controller.setPersonLastname(scanner.next());
 				break;
 				
 			case 'b':
-				System.out.println("Birth (dd.mm.yyyy): ");
 				controller.setPersonBirth(dateFormat.parse(scanner.next()));
 				break;
 				
 			case 'a':
-				System.out.println("Age: ");
 				controller.setPersonAge(Integer.valueOf(scanner.next()).intValue());
 				break;
 				
 			case 'r':
-				System.out.println("Registration (dd.mm.yyyy): ");
 				controller.setPersonRegistration(dateFormat.parse(scanner.next()));
 				break;
 	
 			case 'n':
-				System.out.println("Nationality: ");
 				controller.setPersonNationality(scanner.next());
 				break;
 				
 			case 'e':
-				System.out.println("Email: ");
 				controller.setPersonEmail(scanner.next());
 				break;
 				
 			case 't':
-				System.out.println("Telephone: ");
 				controller.setPersonTelephone(scanner.next());
 				break;
 				
 			case 'm':
-				System.out.println("Mobile: ");
 				controller.setPersonMobile(scanner.next());
 				break;
 				
 			case 's':
-				System.out.println("Street: ");
 				controller.setPersonStreet(scanner.nextLine());
 				break;
 				
 			case 'p':
-				System.out.println("Postcode: ");
 				controller.setPersonPostcode(Integer.valueOf(scanner.next()).intValue());
 				break;
 				
 			case 'c':
-				System.out.println("City: ");
 				controller.setPersonCity(scanner.next());
 				break;
 				
 			case 'o':
-				System.out.println("Country: ");
 				controller.setPersonCountry(scanner.next());
 				break;
 				

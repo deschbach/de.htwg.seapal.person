@@ -1,6 +1,5 @@
 package de.htwg.seapal.person.models;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -9,8 +8,8 @@ public abstract class AbstractPerson implements IPerson {
 	private String firstname = null;
 	private String lastname= null;
 
-	private Date birth;
-	private Date registration;
+	private Date birth = new Date();
+	private Date registration = new Date();
 	private int age = 0;
 	private String nationality = null;
 	
@@ -22,16 +21,6 @@ public abstract class AbstractPerson implements IPerson {
 	private int postcode = 0;
 	private String city = null;
 	private String country = null;
-	
-	public AbstractPerson() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-		try {
-			this.birth = dateFormat.parse("00.00.0000");
-			this.registration = dateFormat.parse("00.00.0000");
-		} catch (ParseException e) {
-			System.out.println("Could not parse date!");
-		}
-	}
 	
 	public String getFirstname() {
 		return firstname;
