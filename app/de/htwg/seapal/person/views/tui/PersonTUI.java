@@ -2,7 +2,6 @@ package de.htwg.seapal.person.views.tui;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
 import de.htwg.seapal.person.controllers.IPersonController;
@@ -31,6 +30,7 @@ public class PersonTUI implements IObserver {
 		
 		char command = line.charAt(0);
 		
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		
 		switch (command) {

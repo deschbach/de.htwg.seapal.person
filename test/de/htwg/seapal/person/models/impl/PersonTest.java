@@ -1,11 +1,6 @@
 package de.htwg.seapal.person.models.impl;
 
 import static org.junit.Assert.*;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,32 +25,6 @@ public class PersonTest {
 	public void testGetLastname() {
 		person.setLastname("Mustermann");
 		assertEquals("Mustermann", person.getLastname());
-	}
-	
-	@Test
-	public void testGetBirth() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-		Date date = null;
-		try {
-			date = dateFormat.parse("00.00.0000");
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		person.setBirth(date);
-		assertEquals(date, person.getRegistration());
-	}
-	
-	@Test
-	public void testGetRegistration() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-		Date date = null;
-		try {
-			date = dateFormat.parse("00.00.0000");
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		person.setRegistration(date);
-		assertEquals(date, person.getRegistration());
 	}
 	
 	@Test
