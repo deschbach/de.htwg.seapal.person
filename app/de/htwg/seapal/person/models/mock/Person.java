@@ -1,7 +1,5 @@
 package de.htwg.seapal.person.models.mock;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import de.htwg.seapal.person.models.AbstractPerson;
@@ -23,28 +21,14 @@ public class Person extends AbstractPerson {
 	}
 	
 	public Date getBirth() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-		Date date = null;
-		try {
-			date = dateFormat.parse("00.00.0000");
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return date;
+		return new Date();
 	}
 	
 	public void setBirth(Date birth) {
 	}
 	
 	public Date getRegistration() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-		Date date = null;
-		try {
-			date = dateFormat.parse("00.00.0000");
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return date;
+		return new Date();
 	}
 
 	public void setRegistration(Date registration) {

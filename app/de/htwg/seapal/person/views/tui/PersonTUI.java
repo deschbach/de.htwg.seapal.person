@@ -23,11 +23,10 @@ public class PersonTUI implements IObserver {
 		printTUI();
 	}
 
-	public boolean processInputLine(String line) {
+	public boolean processInputLine(String line) throws ParseException {
 		
 		boolean continu = true;
 		
-		Date date = null;
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 		
 		char command = line.charAt(0);
@@ -52,14 +51,7 @@ public class PersonTUI implements IObserver {
 				
 			case 'b':
 				System.out.println("Birth (dd.mm.yyyy): ");
-								
-				try {
-					date = dateFormat.parse(scanner.next());
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
-				
-				controller.setPersonBirth(date);
+				controller.setPersonBirth(dateFormat.parse(scanner.next()));
 				break;
 				
 			case 'a':
@@ -69,15 +61,7 @@ public class PersonTUI implements IObserver {
 				
 			case 'r':
 				System.out.println("Registration (dd.mm.yyyy): ");
-				
-				try {
-					date = dateFormat.parse(scanner.next());
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
-				
-				controller.setPersonRegistration(date);
-				
+				controller.setPersonRegistration(dateFormat.parse(scanner.next()));
 				break;
 	
 			case 'n':

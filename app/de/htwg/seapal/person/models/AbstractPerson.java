@@ -6,22 +6,22 @@ import java.util.Date;
 
 public abstract class AbstractPerson implements IPerson {
 
-	protected String firstname = null;
-	protected String lastname= null;
+	private String firstname = null;
+	private String lastname= null;
 
-	protected Date birth;
-	protected Date registration;
-	protected int age = 0;
-	protected String nationality = null;
+	private Date birth;
+	private Date registration;
+	private int age = 0;
+	private String nationality = null;
 	
-	protected String email = null;
-	protected String telephone = null;
-	protected String mobile = null;
+	private String email = null;
+	private String telephone = null;
+	private String mobile = null;
 	
-	protected String street = null;
-	protected int postcode = 0;
-	protected String city = null;
-	protected String country = null;
+	private String street = null;
+	private int postcode = 0;
+	private String city = null;
+	private String country = null;
 	
 	public AbstractPerson() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
@@ -29,7 +29,7 @@ public abstract class AbstractPerson implements IPerson {
 			this.birth = dateFormat.parse("00.00.0000");
 			this.registration = dateFormat.parse("00.00.0000");
 		} catch (ParseException e) {
-			e.printStackTrace();
+			System.out.println("Could not parse date!");
 		}
 	}
 	

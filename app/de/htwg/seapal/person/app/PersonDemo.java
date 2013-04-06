@@ -1,5 +1,6 @@
 package de.htwg.seapal.person.app;
 
+import java.text.ParseException;
 import java.util.Scanner;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -12,7 +13,7 @@ public class PersonDemo {
 	 * @param args
 	 * @throws ParseException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		
 		// Set up Google Guice DI
 		Injector injector = Guice.createInjector(new PersonDemoImplModule());
