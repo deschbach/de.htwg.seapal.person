@@ -46,7 +46,7 @@ object ApplicationBuild extends Build {
 		// add additional resovers
 		resolvers += "HTWG Resolver" at "http://lenny2.in.htwg-konstanz.de:8081/artifactory/libs-snapshot-local",
 		
-		resolvers += "db4o-repo" at "http://source.db4o.com/maven",
+		//resolvers += "db4o-repo" at "http://source.db4o.com/maven",
 		
 		// add publishing target
 		publishTo := Some("HTWG Publisher" at "http://lenny2.in.htwg-konstanz.de:8081/artifactory/libs-snapshot-local;build.timestamp=" + new java.util.Date().getTime),
