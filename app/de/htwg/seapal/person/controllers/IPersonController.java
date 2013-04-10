@@ -1,17 +1,19 @@
 package de.htwg.seapal.person.controllers;
 
 import java.util.Date;
+import java.util.Map;
 
 import de.htwg.seapal.person.util.observer.IObservable;
 
-
 public interface IPersonController extends IObservable{
 	
-	String getPersonFirstname();
-	void setPersonFirstname(String firstname);
+	Map<String,String> getPersonList();
 	
-	String getPersonLastname();
-	void setPersonLastname(String lastname);
+	String getPersonFirstname(String personId);
+	void setPersonFirstname(String personId, String firstname);
+	
+	String getPersonLastname(String personId);
+	void setPersonLastname(String personId, String lastname);
 	
 	Date getPersonBirth();
 	void setPersonBirth(Date birth);

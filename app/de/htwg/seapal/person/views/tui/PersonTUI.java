@@ -35,6 +35,8 @@ public class PersonTUI implements IObserver, Plugin {
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		
+		String personId = "PERSON-1";
+		
 		switch (command) {
 		
 			case 'q':
@@ -42,11 +44,11 @@ public class PersonTUI implements IObserver, Plugin {
 				break;
 			
 			case 'f':
-				controller.setPersonFirstname(scanner.next());
+				controller.setPersonFirstname(personId, scanner.next());
 				break;
 				
 			case 'l':
-				controller.setPersonLastname(scanner.next());
+				controller.setPersonLastname(personId, scanner.next());
 				break;
 				
 			case 'b':

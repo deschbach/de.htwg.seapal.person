@@ -9,23 +9,23 @@ public abstract class AbstractPersonController extends Observable implements IPe
 	protected IPerson person;
 	
 	@Override
-	public String getPersonFirstname() {
+	public String getPersonFirstname(String personId) {
 		return person.getFirstname();
 	}
 
 	@Override
-	public void setPersonFirstname(String firstname) {
+	public void setPersonFirstname(String personId,String firstname) {
 		person.setFirstname(firstname);
 		notifyObservers();
 	}
 
 	@Override
-	public String getPersonLastname() {
+	public String getPersonLastname(String personId) {
 		return person.getLastname();
 	}
 
 	@Override
-	public void setPersonLastname(String lastname) {
+	public void setPersonLastname(String personId, String lastname) {
 		person.setLastname(lastname);
 		notifyObservers();
 	}
