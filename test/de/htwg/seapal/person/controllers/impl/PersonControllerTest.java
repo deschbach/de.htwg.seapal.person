@@ -29,17 +29,17 @@ public class PersonControllerTest {
 		personController = injector.getInstance(IPersonController.class);
 	}
 
-	@Test
-	public void testGetPersonFirstname() {
-		personController.setPersonFirstname("Max");
-		assertEquals("Max", personController.getPersonFirstname());
-	}
-	
-	@Test
-	public void testGetPersonLastname() {
-		personController.setPersonLastname("Mustermann");
-		assertEquals("Mustermann", personController.getPersonLastname());
-	}
+//	@Test
+//	public void testGetPersonFirstname() {
+//		personController.setPersonFirstname("Max");
+//		assertEquals("Max", personController.getPersonFirstname());
+//	}
+//	
+//	@Test
+//	public void testGetPersonLastname() {
+//		personController.setPersonLastname("Mustermann");
+//		assertEquals("Mustermann", personController.getPersonLastname());
+//	}
 	
 	@Test
 	public void testGetPersonBirth() {
