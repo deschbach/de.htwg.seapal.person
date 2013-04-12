@@ -36,58 +36,58 @@ public class PersonControllerTest {
 //		assertEquals("Mustermann", personController.getPersonLastname());
 //	}
 	
-	@Test
-	public void testGetPersonAge() {
-		personController.setPersonAge(50);
-		assertEquals(50, personController.getPersonAge());
-	}
-	
-	@Test
-	public void testGetPersonNationality() {
-		personController.setPersonNationality("German");
-		assertEquals("German", personController.getPersonNationality());
-	}
-	
-	@Test
-	public void testGetPersonEmail() {
-		personController.setPersonEmail("max.musterman@domain.de");
-		assertEquals("max.musterman@domain.de", personController.getPersonEmail());
-	}
-	
-	@Test
-	public void testGetPersonTelephone() {
-		personController.setPersonTelephone("0123/4567890");
-		assertEquals("0123/4567890", personController.getPersonTelephone());
-	}
-	
-	@Test
-	public void testGetPersonMobile() {
-		personController.setPersonMobile("0987/6543210");
-		assertEquals("0987/6543210", personController.getPersonMobile());
-	}
-	
-	@Test
-	public void testGetPersonStreet() {
-		personController.setPersonStreet("Musterstraße 1");
-		assertEquals("Musterstraße 1", personController.getPersonStreet());
-	}
-	
-	@Test
-	public void testGetPersonPostcode() {
-		personController.setPersonPostcode(12345);
-		assertEquals(12345, personController.getPersonPostcode());
-	}
-	
-	@Test
-	public void testGetPersonCity() {
-		personController.setPersonCity("Musterstadt");
-		assertEquals("Musterstadt", personController.getPersonCity());
-	}
-	
-	@Test
-	public void testGetPersonCountry() {
-		personController.setPersonCountry("Germany");
-		assertEquals("Germany", personController.getPersonCountry());
-	}
+//	@Test
+//	public void testGetPersonAge() {
+//		personController.setPersonAge(50);
+//		assertEquals(50, personController.getPersonAge());
+//	}
+//	
+//	@Test
+//	public void testGetPersonNationality() {
+//		personController.setPersonNationality("German");
+//		assertEquals("German", personController.getPersonNationality());
+//	}
+//	
+//	@Test
+//	public void testGetPersonEmail() {
+//		personController.setPersonEmail("max.musterman@domain.de");
+//		assertEquals("max.musterman@domain.de", personController.getPersonEmail());
+//	}
+//	
+//	@Test
+//	public void testGetPersonTelephone() {
+//		personController.setPersonTelephone("0123/4567890");
+//		assertEquals("0123/4567890", personController.getPersonTelephone());
+//	}
+//	
+//	@Test
+//	public void testGetPersonMobile() {
+//		personController.setPersonMobile("0987/6543210");
+//		assertEquals("0987/6543210", personController.getPersonMobile());
+//	}
+//	
+//	@Test
+//	public void testGetPersonStreet() {
+//		personController.setPersonStreet("Musterstraße 1");
+//		assertEquals("Musterstraße 1", personController.getPersonStreet());
+//	}
+//	
+//	@Test
+//	public void testGetPersonPostcode() {
+//		personController.setPersonPostcode(12345);
+//		assertEquals(12345, personController.getPersonPostcode());
+//	}
+//	
+//	@Test
+//	public void testGetPersonCity() {
+//		personController.setPersonCity("Musterstadt");
+//		assertEquals("Musterstadt", personController.getPersonCity());
+//	}
+//	
+//	@Test
+//	public void testGetPersonCountry() {
+//		personController.setPersonCountry("Germany");
+//		assertEquals("Germany", personController.getPersonCountry());
+//	}
 
 }

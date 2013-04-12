@@ -5,6 +5,8 @@ import java.util.Date;
 
 public abstract class AbstractPerson implements IPerson {
 
+	private String id = null;
+	
 	private String firstname = null;
 	private String lastname= null;
 
@@ -21,6 +23,14 @@ public abstract class AbstractPerson implements IPerson {
 	private int postcode = 0;
 	private String city = null;
 	private String country = null;
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 	public String getFirstname() {
 		return firstname;
@@ -126,13 +136,14 @@ public abstract class AbstractPerson implements IPerson {
 		this.country = country;
 	}
 
-	@Override
 	public String getString() {
 		
 		StringBuilder sb = new StringBuilder();
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 		
+		sb.append("\n");
+		sb.append("ID: \t\t").append(this.getId()).append("\n");
 		sb.append("Firstname: \t").append(this.getFirstname()).append("\n");
 		sb.append("Lastname: \t").append(this.getLastname()).append("\n");
 		sb.append("Birth: \t\t").append(dateFormat.format(this.getBirth())).append("\n");
@@ -146,6 +157,7 @@ public abstract class AbstractPerson implements IPerson {
 		sb.append("Postcode: \t").append(this.getPostcode()).append("\n");
 		sb.append("City: \t\t").append(this.getCity()).append("\n");
 		sb.append("Country: \t").append(this.getCountry()).append("\n");
+		sb.append("\n");
 		
 		return sb.toString();
 	}

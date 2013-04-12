@@ -9,6 +9,13 @@ public class Person extends AbstractPerson {
 	private static final int AGE = 50;
 	private static final int POSTCODE = 12345;
 	
+	public String getId() {
+		return "PERSON-1";
+	}
+	
+	public void setId() {
+	}
+	
 	public String getFirstname() {
 		return "Max";
 	}

@@ -43,6 +43,11 @@ public class PersonTUI implements IObserver, Plugin {
 				continu = false;
 				break;
 			
+			case 'x':
+				String in = scanner.next();
+				controller.addPerson();
+				break;
+				
 			case 'f':
 				controller.setPersonFirstname(personId, scanner.next());
 				break;
@@ -52,52 +57,54 @@ public class PersonTUI implements IObserver, Plugin {
 				break;
 				
 			case 'b':
-				controller.setPersonBirth(parseDate(scanner.next()));
+				controller.setPersonBirth(personId, parseDate(scanner.next()));
 				break;
 				
 			case 'a':
-				controller.setPersonAge(Integer.valueOf(scanner.next()).intValue());
+				controller.setPersonAge(personId, Integer.valueOf(scanner.next()).intValue());
 				break;
 				
 			case 'r':
-				controller.setPersonRegistration(parseDate(scanner.next()));
+				controller.setPersonRegistration(personId, parseDate(scanner.next()));
 				break;
 	
 			case 'n':
-				controller.setPersonNationality(scanner.next());
+				controller.setPersonNationality(personId, scanner.next());
 				break;
 				
 			case 'e':
-				controller.setPersonEmail(scanner.next());
+				controller.setPersonEmail(personId, scanner.next());
 				break;
 				
 			case 't':
-				controller.setPersonTelephone(scanner.next());
+				controller.setPersonTelephone(personId, scanner.next());
 				break;
 				
 			case 'm':
-				controller.setPersonMobile(scanner.next());
+				controller.setPersonMobile(personId, scanner.next());
 				break;
 				
 			case 's':
-				controller.setPersonStreet(scanner.nextLine());
+				controller.setPersonStreet(personId, scanner.nextLine());
 				break;
 				
 			case 'p':
-				controller.setPersonPostcode(Integer.valueOf(scanner.next()).intValue());
+				controller.setPersonPostcode(personId, Integer.valueOf(scanner.next()).intValue());
 				break;
 				
 			case 'c':
-				controller.setPersonCity(scanner.next());
+				controller.setPersonCity(personId, scanner.next());
 				break;
 				
 			case 'o':
-				controller.setPersonCountry(scanner.next());
+				controller.setPersonCountry(personId, scanner.next());
 				break;
 				
 			default:
 				System.out.println("Unknown Command! Pleas try again ...");
 		}
+		
+		System.out.println(controller.getPersonString(personId));
 		
 		return continu;
 	}
@@ -121,8 +128,6 @@ public class PersonTUI implements IObserver, Plugin {
 		sb.append("p - set Postcode").append("\n");
 		sb.append("c - set City").append("\n");
 		sb.append("o - set Country").append("\n");
-		sb.append("\n");
-		sb.append(controller.getPersonString());
 		sb.append("\n");
 		sb.append("Command: ");
 		

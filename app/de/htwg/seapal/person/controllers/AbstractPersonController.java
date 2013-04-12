@@ -1,159 +1,310 @@
 package de.htwg.seapal.person.controllers;
 
 import java.util.Date;
+
+import de.htwg.seapal.person.database.IPersonDatabase;
+import de.htwg.seapal.person.database.impl.PersonHashMapDatabase;
 import de.htwg.seapal.person.models.IPerson;
+import de.htwg.seapal.person.models.impl.Person;
 import de.htwg.seapal.person.util.observer.Observable;
 
 public abstract class AbstractPersonController extends Observable implements IPersonController {
 
-	protected IPerson person;
+	protected IPersonDatabase database;
+	
+	public AbstractPersonController() {
+		database = new PersonHashMapDatabase();
+	}
+	
+	public void addPerson() {
+		
+		IPerson person = new Person();
+		person.setId("PERSON-1");
+		database.savePersonById("PERSON-1", person);
+	}
 	
 	@Override
-	public String getPersonFirstname(String personId) {
-		return person.getFirstname();
+	public String getPersonFirstname(String personId) {	
+		
+		if (database.containsPerson(personId)) {
+			return database.getPersonById(personId).getFirstname();
+		} else {
+			return null;
+		}
+
 	}
 
 	@Override
 	public void setPersonFirstname(String personId,String firstname) {
-		person.setFirstname(firstname);
+		
+		if (database.containsPerson(personId)) {
+			IPerson person = database.getPersonById(personId);
+			person.setFirstname(firstname);
+			database.savePersonById(personId, person);
+		}
 		notifyObservers();
 	}
 
 	@Override
 	public String getPersonLastname(String personId) {
-		return person.getLastname();
+		
+		if (database.containsPerson(personId)) {
+			return database.getPersonById(personId).getLastname();
+		} else {
+			return null;
+		}
 	}
 
 	@Override
 	public void setPersonLastname(String personId, String lastname) {
-		person.setLastname(lastname);
+		
+		if (database.containsPerson(personId)) {
+			IPerson person = database.getPersonById(personId);
+			person.setLastname(lastname);
+			database.savePersonById(personId, person);
+		}
 		notifyObservers();
 	}
 
 	@Override
-	public Date getPersonBirth() {
-		return person.getBirth();
+	public Date getPersonBirth(String personId) {
+		
+		if (database.containsPerson(personId)) {
+			return database.getPersonById(personId).getBirth();
+		} else {
+			return null;
+		}
 	}
 
 	@Override
-	public void setPersonBirth(Date birth) {
-		person.setBirth(birth);
-		notifyObservers();
-	}
-	
-	@Override
-	public Date getPersonRegistration() {
-		return person.getRegistration();
-	}
-
-	@Override
-	public void setPersonRegistration(Date registration) {
-		person.setRegistration(registration);
-		notifyObservers();
-	}
-
-	@Override
-	public int getPersonAge() {
-		return person.getAge();
-	}
-
-	@Override
-	public void setPersonAge(int age) {
-		person.setAge(age);
-		notifyObservers();
-	}
-
-	@Override
-	public String getPersonNationality() {
-		return person.getNationality();
-	}
-
-	@Override
-	public void setPersonNationality(String nationality) {
-		person.setNationality(nationality);
+	public void setPersonBirth(String personId, Date birth) {
+		
+		if (database.containsPerson(personId)) {
+			IPerson person = database.getPersonById(personId);
+			person.setBirth(birth);
+			database.savePersonById(personId, person);
+		}
 		notifyObservers();
 	}
 	
 	@Override
-	public String getPersonEmail() {
-		return person.getEmail();
+	public Date getPersonRegistration(String personId) {
+		
+		if (database.containsPerson(personId)) {
+			return database.getPersonById(personId).getRegistration();
+		} else {
+			return null;
+		}
 	}
 
 	@Override
-	public void setPersonEmail(String email) {
-		person.setEmail(email);
+	public void setPersonRegistration(String personId, Date registration) {
+		
+		if (database.containsPerson(personId)) {
+			IPerson person = database.getPersonById(personId);
+			person.setRegistration(registration);
+			database.savePersonById(personId, person);
+		}
 		notifyObservers();
 	}
 
 	@Override
-	public String getPersonTelephone() {
-		return person.getTelephone();
+	public int getPersonAge(String personId) {
+		
+		if (database.containsPerson(personId)) {
+			return database.getPersonById(personId).getAge();
+		} else {
+			return 0;
+		}
 	}
 
 	@Override
-	public void setPersonTelephone(String telephone) {
-		person.setTelephone(telephone);
+	public void setPersonAge(String personId, int age) {
+		
+		if (database.containsPerson(personId)) {
+			IPerson person = database.getPersonById(personId);
+			person.setAge(age);
+			database.savePersonById(personId, person);
+		}
 		notifyObservers();
 	}
 
 	@Override
-	public String getPersonMobile() {
-		return person.getMobile();
+	public String getPersonNationality(String personId) {
+		
+		if (database.containsPerson(personId)) {
+			return database.getPersonById(personId).getNationality();
+		} else {
+			return null;
+		}
 	}
 
 	@Override
-	public void setPersonMobile(String mobile) {
-		person.setMobile(mobile);
-		notifyObservers();
-	}
-
-	@Override
-	public String getPersonStreet() {
-		return person.getStreet();
-	}
-
-	@Override
-	public void setPersonStreet(String street) {
-		person.setStreet(street);
-		notifyObservers();
-	}
-
-	@Override
-	public int getPersonPostcode() {
-		return person.getPostcode();
-	}
-
-	@Override
-	public void setPersonPostcode(int postcode) {
-		person.setPostcode(postcode);
-		notifyObservers();
-	}
-
-	@Override
-	public String getPersonCity() {
-		return person.getCity();
-	}
-
-	@Override
-	public void setPersonCity(String city) {
-		person.setCity(city);
-		notifyObservers();
-	}
-
-	@Override
-	public String getPersonCountry() {
-		return person.getCountry();
-	}
-
-	@Override
-	public void setPersonCountry(String country) {
-		person.setCountry(country);
+	public void setPersonNationality(String personId, String nationality) {
+		
+		if (database.containsPerson(personId)) {
+			IPerson person = database.getPersonById(personId);
+			person.setNationality(nationality);
+			database.savePersonById(personId, person);
+		}
 		notifyObservers();
 	}
 	
 	@Override
-	public String getPersonString() {
-		return person.getString();
+	public String getPersonEmail(String personId) {
+		
+		if (database.containsPerson(personId)) {
+			return database.getPersonById(personId).getEmail();
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void setPersonEmail(String personId, String email) {
+		
+		if (database.containsPerson(personId)) {
+			IPerson person = database.getPersonById(personId);
+			person.setEmail(email);
+			database.savePersonById(personId, person);
+		}
+		notifyObservers();
+	}
+
+	@Override
+	public String getPersonTelephone(String personId) {
+		
+		if (database.containsPerson(personId)) {
+			return database.getPersonById(personId).getTelephone();
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void setPersonTelephone(String personId, String telephone) {
+		
+		if (database.containsPerson(personId)) {
+			IPerson person = database.getPersonById(personId);
+			person.setTelephone(telephone);
+			database.savePersonById(personId, person);
+		}
+		notifyObservers();
+	}
+
+	@Override
+	public String getPersonMobile(String personId) {
+		if (database.containsPerson(personId)) {
+			return database.getPersonById(personId).getMobile();
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void setPersonMobile(String personId, String mobile) {
+		
+		if (database.containsPerson(personId)) {
+			IPerson person = database.getPersonById(personId);
+			person.setMobile(mobile);
+			database.savePersonById(personId, person);
+		}
+		notifyObservers();
+	}
+
+	@Override
+	public String getPersonStreet(String personId) {
+		
+		if (database.containsPerson(personId)) {
+			return database.getPersonById(personId).getStreet();
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void setPersonStreet(String personId, String street) {
+		
+		if (database.containsPerson(personId)) {
+			IPerson person = database.getPersonById(personId);
+			person.setStreet(street);
+			database.savePersonById(personId, person);
+		}
+		notifyObservers();
+	}
+
+	@Override
+	public int getPersonPostcode(String personId) {
+		
+		if (database.containsPerson(personId)) {
+			return database.getPersonById(personId).getPostcode();
+		} else {
+			return 0;
+		}
+	}
+
+	@Override
+	public void setPersonPostcode(String personId, int postcode) {
+		
+		if (database.containsPerson(personId)) {
+			IPerson person = database.getPersonById(personId);
+			person.setPostcode(postcode);
+			database.savePersonById(personId, person);
+		}
+		notifyObservers();
+	}
+
+	@Override
+	public String getPersonCity(String personId) {
+		
+		if (database.containsPerson(personId)) {
+			return database.getPersonById(personId).getCity();
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void setPersonCity(String personId, String city) {
+		
+		if (database.containsPerson(personId)) {
+			IPerson person = database.getPersonById(personId);
+			person.setCity(city);
+			database.savePersonById(personId, person);
+		}
+		notifyObservers();
+	}
+
+	@Override
+	public String getPersonCountry(String personId) {
+		
+		if (database.containsPerson(personId)) {
+			return database.getPersonById(personId).getCountry();
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void setPersonCountry(String personId, String country) {
+		
+		if (database.containsPerson(personId)) {
+			IPerson person = database.getPersonById(personId);
+			person.setCountry(country);
+			database.savePersonById(personId, person);
+		}
+		notifyObservers();
+	}
+	
+	@Override
+	public String getPersonString(String personId) {
+		
+		if (database.containsPerson(personId)) {
+			IPerson person = database.getPersonById(personId);
+			return person.getString();
+		} else {
+			return null;
+		}
 	}
 
 }

@@ -12,12 +12,11 @@ public class PersonController extends AbstractPersonController {
 
 	@Inject
 	public PersonController(IPerson person) {
-		this.person = person;
+		//this.person = person;
 	}
 
 	@Override
 	public Map<String, String> getPersonList() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

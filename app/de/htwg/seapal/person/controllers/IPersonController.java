@@ -9,45 +9,47 @@ public interface IPersonController extends IObservable{
 	
 	Map<String,String> getPersonList();
 	
+	void addPerson();
+	
 	String getPersonFirstname(String personId);
 	void setPersonFirstname(String personId, String firstname);
 	
 	String getPersonLastname(String personId);
 	void setPersonLastname(String personId, String lastname);
 	
-	Date getPersonBirth();
-	void setPersonBirth(Date birth);
+	Date getPersonBirth(String personId);
+	void setPersonBirth(String personId, Date birth);
 	
-	Date getPersonRegistration();
-	void setPersonRegistration(Date registration);
+	Date getPersonRegistration(String personId);
+	void setPersonRegistration(String personId, Date registration);
 	
-	int getPersonAge();
-	void setPersonAge(int age);
+	int getPersonAge(String personId);
+	void setPersonAge(String personId, int age);
 	
-	String getPersonNationality();
-	void setPersonNationality(String nationality);
+	String getPersonNationality(String personId);
+	void setPersonNationality(String personId, String nationality);
 	
-	String getPersonEmail();
-	void setPersonEmail(String email);
+	String getPersonEmail(String personId);
+	void setPersonEmail(String personId, String email);
 	
-	String getPersonTelephone();
-	void setPersonTelephone(String telephone);
+	String getPersonTelephone(String personId);
+	void setPersonTelephone(String personId, String telephone);
 	
-	String getPersonMobile();
-	void setPersonMobile(String mobile);
+	String getPersonMobile(String personId);
+	void setPersonMobile(String personId, String mobile);
 	
-	String getPersonStreet();
-	void setPersonStreet(String street);
+	String getPersonStreet(String personId);
+	void setPersonStreet(String personId, String street);
 	
-	int getPersonPostcode();
-	void setPersonPostcode(int postcode);
+	int getPersonPostcode(String personId);
+	void setPersonPostcode(String personId, int postcode);
 	
-	String getPersonCity();
-	void setPersonCity(String city);
+	String getPersonCity(String personId);
+	void setPersonCity(String personId, String city);
 	
-	String getPersonCountry();
-	void setPersonCountry(String country);
+	String getPersonCountry(String personId);
+	void setPersonCountry(String personId, String country);
 
-	String getPersonString();
+	String getPersonString(String personId);
 	
 }
