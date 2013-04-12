@@ -12,7 +12,7 @@ public class PersonHashMapDatabase implements IPersonDatabase {
 	}
 
 	@Override
-	public void savePersonById(String personId, IPerson person) {}
+	public void savePerson(IPerson person) {}
 
 	@Override
 	public void deletePersonById(String personId) {}

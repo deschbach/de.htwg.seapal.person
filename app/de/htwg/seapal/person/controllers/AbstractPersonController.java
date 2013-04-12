@@ -20,7 +20,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 		
 		IPerson person = new Person();
 		person.setId("PERSON-1");
-		database.savePersonById("PERSON-1", person);
+		database.savePerson(person);
 	}
 	
 	@Override
@@ -40,7 +40,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 		if (database.containsPerson(personId)) {
 			IPerson person = database.getPersonById(personId);
 			person.setFirstname(firstname);
-			database.savePersonById(personId, person);
+			database.savePerson(person);
 		}
 		notifyObservers();
 	}
@@ -61,7 +61,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 		if (database.containsPerson(personId)) {
 			IPerson person = database.getPersonById(personId);
 			person.setLastname(lastname);
-			database.savePersonById(personId, person);
+			database.savePerson(person);
 		}
 		notifyObservers();
 	}
@@ -82,7 +82,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 		if (database.containsPerson(personId)) {
 			IPerson person = database.getPersonById(personId);
 			person.setBirth(birth);
-			database.savePersonById(personId, person);
+			database.savePerson(person);
 		}
 		notifyObservers();
 	}
@@ -103,7 +103,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 		if (database.containsPerson(personId)) {
 			IPerson person = database.getPersonById(personId);
 			person.setRegistration(registration);
-			database.savePersonById(personId, person);
+			database.savePerson(person);
 		}
 		notifyObservers();
 	}
@@ -124,7 +124,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 		if (database.containsPerson(personId)) {
 			IPerson person = database.getPersonById(personId);
 			person.setAge(age);
-			database.savePersonById(personId, person);
+			database.savePerson(person);
 		}
 		notifyObservers();
 	}
@@ -145,7 +145,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 		if (database.containsPerson(personId)) {
 			IPerson person = database.getPersonById(personId);
 			person.setNationality(nationality);
-			database.savePersonById(personId, person);
+			database.savePerson(person);
 		}
 		notifyObservers();
 	}
@@ -166,7 +166,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 		if (database.containsPerson(personId)) {
 			IPerson person = database.getPersonById(personId);
 			person.setEmail(email);
-			database.savePersonById(personId, person);
+			database.savePerson(person);
 		}
 		notifyObservers();
 	}
@@ -187,7 +187,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 		if (database.containsPerson(personId)) {
 			IPerson person = database.getPersonById(personId);
 			person.setTelephone(telephone);
-			database.savePersonById(personId, person);
+			database.savePerson(person);
 		}
 		notifyObservers();
 	}
@@ -207,7 +207,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 		if (database.containsPerson(personId)) {
 			IPerson person = database.getPersonById(personId);
 			person.setMobile(mobile);
-			database.savePersonById(personId, person);
+			database.savePerson(person);
 		}
 		notifyObservers();
 	}
@@ -228,7 +228,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 		if (database.containsPerson(personId)) {
 			IPerson person = database.getPersonById(personId);
 			person.setStreet(street);
-			database.savePersonById(personId, person);
+			database.savePerson(person);
 		}
 		notifyObservers();
 	}
@@ -249,7 +249,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 		if (database.containsPerson(personId)) {
 			IPerson person = database.getPersonById(personId);
 			person.setPostcode(postcode);
-			database.savePersonById(personId, person);
+			database.savePerson(person);
 		}
 		notifyObservers();
 	}
@@ -270,7 +270,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 		if (database.containsPerson(personId)) {
 			IPerson person = database.getPersonById(personId);
 			person.setCity(city);
-			database.savePersonById(personId, person);
+			database.savePerson(person);
 		}
 		notifyObservers();
 	}
@@ -291,7 +291,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 		if (database.containsPerson(personId)) {
 			IPerson person = database.getPersonById(personId);
 			person.setCountry(country);
-			database.savePersonById(personId, person);
+			database.savePerson(person);
 		}
 		notifyObservers();
 	}

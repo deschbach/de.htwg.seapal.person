@@ -15,8 +15,8 @@ public class PersonHashMapDatabase implements IPersonDatabase {
 	}
 
 	@Override
-	public void savePersonById(String personId, IPerson person) {
-		database.put(personId, person);
+	public void savePerson(IPerson person) {
+		database.put(person.getId(), person);
 	}
 
 	@Override
