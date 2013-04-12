@@ -18,15 +18,13 @@ object ApplicationBuild extends Build {
     	javaEbean,
     	"de.htwg" % "util" % "1.0-SNAPSHOT",
     	"com.google.inject" % "guice" % "3.0",
-    	"com.google.inject.extensions" % "guice-multibindings" % "3.0"
-    	//"com.db4o" % "db4o-full-java5" % "8.1-SNAPSHOT"
+    	"com.google.inject.extensions" % "guice-multibindings" % "3.0",
+    	"com.db4o" % "db4o-full-java5" % "8.1-SNAPSHOT"
  	)
  	
  	 // team component dependencies
   	val teamDependencies = Seq(
-  		
-  		// your project dependencies here...
-  		//"boat" % "boat_2.10" % "1.0-SNAPSHOT"
+  		"de.htwg.seapal" % "boat" % "1.0-SNAPSHOT"
   	)
 
 	// all project dependencies
@@ -45,6 +43,7 @@ object ApplicationBuild extends Build {
 		
 		// add additional resovers
 		resolvers += "HTWG Resolver" at "http://lenny2.in.htwg-konstanz.de:8081/artifactory/libs-snapshot-local",
+		resolvers += "db4o-repo" at "http://source.db4o.com/maven",
 		
 		//resolvers += "db4o-repo" at "http://source.db4o.com/maven",
 		
