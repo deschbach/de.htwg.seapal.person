@@ -28,7 +28,7 @@ public abstract class AbstractPersonController extends Observable implements IPe
 	}
 
 	@Override
-	public void setPersonFirstname(String personId,String firstname) {
+	public void setPersonFirstname(String personId, String firstname) {
 		
 		if (database.containsPerson(personId)) {
 			IPerson person = database.getPersonById(personId);

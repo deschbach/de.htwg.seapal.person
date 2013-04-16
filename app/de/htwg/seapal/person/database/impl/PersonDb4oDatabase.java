@@ -39,7 +39,7 @@ public class PersonDb4oDatabase implements IPersonDatabase {
 			private static final long serialVersionUID = 1L;
 
 			public boolean match(IPerson person) {
-				return person.getId() == personId;
+				return person.getId().equals(personId);
 			}
 		});
 		
