@@ -8,6 +8,7 @@ import de.htwg.seapal.person.models.IPerson;
 import de.htwg.seapal.person.models.impl.Person;
 import de.htwg.seapal.person.util.observer.Observable;
 
+
 public abstract class AbstractPersonController extends Observable implements IPersonController {
 
 	protected IPersonDatabase database;
