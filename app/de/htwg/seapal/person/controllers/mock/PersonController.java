@@ -43,4 +43,8 @@ public class PersonController extends AbstractPersonController {
 	@Override
 	public void setPersonLastname(String personId, String lastname) {}
 
+	@Override
+	public void addPerson() {
+	}
+
 }
