@@ -1,13 +1,14 @@
 package de.htwg.seapal.person.database.impl;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import de.htwg.seapal.person.database.IPersonDatabase;
 import de.htwg.seapal.person.models.IPerson;
 
 public class PersonHashMapDatabase implements IPersonDatabase {
 
-	private HashMap<String, IPerson> database = new HashMap<String, IPerson>();
+	private Map<String, IPerson> database = new HashMap<String, IPerson>();
 	
 	@Override
 	public IPerson getPersonById(String personId) {
