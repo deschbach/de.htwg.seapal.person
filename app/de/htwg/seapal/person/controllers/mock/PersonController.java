@@ -13,7 +13,7 @@ public class PersonController extends AbstractPersonController {
 	
 	@Inject
 	public PersonController(IPerson person) {
-		super.setPerson(null);
+		super.setPerson(person);
 	}
 
 	@Override
