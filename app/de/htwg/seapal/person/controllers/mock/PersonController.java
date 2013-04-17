@@ -1,5 +1,7 @@
 package de.htwg.seapal.person.controllers.mock;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,135 +13,136 @@ import de.htwg.seapal.person.controllers.IPersonController;
 @Singleton
 public class PersonController extends Observable implements IPersonController {
 	
+	private static final int AGE = 50;
+	private static final int POSTCODE = 12345;
+	private static final String FIRSTNAME = "Max";
+	private static final String LASTNAME = "Mustermann";
+	private static final String PERSONID = "PERSON-0";
+	private static final String NATIONALITY = "German";
+	private static final String EMAIL = "max.musterman@domain.de";
+	private static final String PHONE = "0123/4567890";
+	private static final String MOBILE = "0987/6543210";
+	private static final String STREET = "Musterstraße 1";
+	private static final String CITY = "Musterstadt";
+	private static final String COUNTRY = "Germany";
+	
+	private static Date someDate;
+	
+	static {
+		try {
+			someDate = (new SimpleDateFormat("dd.MM.yyyy")).parse("00.00.0000");
+		} catch (ParseException e) {
+			someDate = null;
+		}
+	}
+	
 	@Override
 	public String addPerson() {
-		return "PERSON-1";
+		return PERSONID;
 	}
 	
 	@Override
 	public Map<String, String> getPersonList() {
 		
 		Map<String,String> personMap = new HashMap<String,String>();
-		personMap.put("PERSON-1", "Hans Müller");
+		personMap.put(PERSONID, FIRSTNAME + " " + LASTNAME);
 		
 		return personMap;
 	}
 	
+	
 	@Override
 	public String getPersonFirstname(String personId) {
-		return "Hans";
+		return FIRSTNAME;
 	}
-
-	@Override
-	public void setPersonFirstname(String personId,String firstname) {}
-
-	@Override
+	
+	public void setPersonFirstname(String personId, String firstname) {
+	}
+	
 	public String getPersonLastname(String personId) {
-		return "Müller";
+		return LASTNAME;
 	}
-
-	@Override
-	public void setPersonLastname(String personId, String lastname) {}
-
-	@Override
+	
+	public void setPersonLastname(String personId, String lastname) {
+	}
+	
 	public Date getPersonBirth(String personId) {
-		return null;
+		return someDate;
 	}
-
-	@Override
+	
 	public void setPersonBirth(String personId, Date birth) {
 	}
-
-	@Override
+	
 	public Date getPersonRegistration(String personId) {
-		return null;
+		return someDate;
 	}
 
-	@Override
 	public void setPersonRegistration(String personId, Date registration) {
 	}
-
-	@Override
+	
 	public int getPersonAge(String personId) {
-		return 0;
+		return AGE;
 	}
-
-	@Override
+	
 	public void setPersonAge(String personId, int age) {
 	}
-
-	@Override
+	
 	public String getPersonNationality(String personId) {
-		return null;
+		return NATIONALITY;
 	}
 
-	@Override
 	public void setPersonNationality(String personId, String nationality) {
 	}
-
-	@Override
+	
 	public String getPersonEmail(String personId) {
-		return null;
+		return EMAIL;
 	}
-
-	@Override
+	
 	public void setPersonEmail(String personId, String email) {
 	}
-
-	@Override
+	
 	public String getPersonTelephone(String personId) {
-		return null;
+		return PHONE;
 	}
-
-	@Override
+	
 	public void setPersonTelephone(String personId, String telephone) {
 	}
-
-	@Override
+	
 	public String getPersonMobile(String personId) {
-		return null;
+		return MOBILE;
 	}
-
-	@Override
+	
 	public void setPersonMobile(String personId, String mobile) {
 	}
-
-	@Override
+	
 	public String getPersonStreet(String personId) {
-		return null;
+		return STREET;
 	}
-
-	@Override
+	
 	public void setPersonStreet(String personId, String street) {
 	}
-
-	@Override
+	
 	public int getPersonPostcode(String personId) {
-		return 0;
+		return POSTCODE;
 	}
-
-	@Override
+	
 	public void setPersonPostcode(String personId, int postcode) {
 	}
-
-	@Override
+	
 	public String getPersonCity(String personId) {
-		return null;
+		return CITY;
 	}
-
-	@Override
+	
 	public void setPersonCity(String personId, String city) {
 	}
-
-	@Override
+	
 	public String getPersonCountry(String personId) {
-		return null;
+		return COUNTRY;
 	}
-
-	@Override
+	
 	public void setPersonCountry(String personId, String country) {
-	}
-
+	}	
+	
 	@Override
 	public String getPersonString(String personId) {
 		return null;

@@ -1,84 +1,31 @@
 package de.htwg.seapal.person.models.mock;
 
-import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
+import com.google.inject.AbstractModule;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
-import de.htwg.seapal.person.models.mock.Person;
+import de.htwg.seapal.person.controllers.IPersonController;
+import de.htwg.seapal.person.database.IPersonDatabase;
+import de.htwg.seapal.person.models.IPerson;
+import de.htwg.seapal.person.models.IPersonTest;
 
-public class PersonTest {
-	
-	private Person person;
+public class PersonTest extends IPersonTest {
 
-	@Before
-	public void setup(){
-		person = new Person();	
-	}
+	@Override
+	protected Injector createInjector() {
+		Injector tInj = Guice.createInjector(new AbstractModule() {
 
-	@Test
-	public void testGetFirstname() {
-		person.setFirstname("Max");
-		assertEquals("Max", person.getFirstname());
-	}
-	
-	@Test
-	public void testGetLastname() {
-		person.setLastname("Mustermann");
-		assertEquals("Mustermann", person.getLastname());
-	}
-	
-	@Test
-	public void testGetAge() {
-		person.setAge(50);
-		assertEquals(50, person.getAge());
-	}
-	
-	@Test
-	public void testGetNationality() {
-		person.setNationality("German");
-		assertEquals("German", person.getNationality());
-	}
-	
-	@Test
-	public void testGetEmail() {
-		person.setEmail("max.musterman@domain.de");
-		assertEquals("max.musterman@domain.de", person.getEmail());
-	}
-	
-	@Test
-	public void testGetTelephone() {
-		person.setTelephone("0123/4567890");
-		assertEquals("0123/4567890", person.getTelephone());
-	}
-	
-	@Test
-	public void testGetMobile() {
-		person.setMobile("0987/6543210");
-		assertEquals("0987/6543210", person.getMobile());
-	}
-	
-	@Test
-	public void testGetStreet() {
-		person.setStreet("Musterstraße 1");
-		assertEquals("Musterstraße 1", person.getStreet());
-	}
-	
-	@Test
-	public void testGetPostcode() {
-		person.setPostcode(12345);
-		assertEquals(12345, person.getPostcode());
-	}
-	
-	@Test
-	public void testGetCity() {
-		person.setCity("Musterstadt");
-		assertEquals("Musterstadt", person.getCity());
-	}
-	
-	@Test
-	public void testGetCountry() {
-		person.setCountry("Germany");
-		assertEquals("Germany", person.getCountry());
+			@Override
+			protected void configure() {
+				bind(IPerson.class).to(
+						de.htwg.seapal.person.models.mock.Person.class);
+				bind(IPersonController.class)
+						.to(de.htwg.seapal.person.controllers.mock.PersonController.class);
+				bind(IPersonDatabase.class)
+						.to(de.htwg.seapal.person.database.mock.PersonDatabase.class);
+			}
+		});
+		return tInj;
 	}
 
 }
