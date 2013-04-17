@@ -18,7 +18,7 @@ public class PersonTUI implements IObserver, Plugin {
 	
 	private IPersonController controller;
 	private Map<Character, TuiCommand> commands;
-	private String personId = "PERSON-1";
+	private String personId = null;
 	
 	public PersonTUI(IPersonController controller) {
 		this.controller = controller;
@@ -44,11 +44,14 @@ public class PersonTUI implements IObserver, Plugin {
 		commands.put('c', new SetPersonCityCommand());
 		commands.put('o', new SetPersonCountryCommand());
 		commands.put('i', new SavePersonIdCommand());
+		commands.put('d', new PrintPersonCommand());
+		commands.put('h', new PrintCommandsCommand());
 	}
 	
 	@Override
 	public void update(Event e) {
-		printTUI();
+		System.out.printf("Current person: %n");
+		(new PrintPersonCommand()).execute(null);
 	}
 	
 	@Override
@@ -74,15 +77,12 @@ public class PersonTUI implements IObserver, Plugin {
 			scanner.close();
 			scanner = null;
 		}
-		System.out.println(controller.getPersonString(personId));
 		return continu;
 	}
 	
 	@Override
 	public void printTUI() {
-		System.out.printf("PersonDemo: %n");
-		(new PrintCommandsCommand()).execute(null);
-		System.out.printf("%nCommand: ");
+		System.out.printf("%nCommand (h for help): ");
 	}
 
 	@Override
@@ -106,8 +106,9 @@ public class PersonTUI implements IObserver, Plugin {
 		@Override
 		public boolean execute(Scanner arguments) {
 			for (Entry<Character, TuiCommand> command : commands.entrySet()) {
-				System.out.println(command.getKey() + " - " + command.getValue().getDescription());
+				System.out.printf(command.getKey() + " - " + command.getValue().getDescription() +  "%n");
 			}
+			System.out.printf("Exmaple:%n> x%n> i PERSON-0%n> f Max%n> l Mustermann%n> d%n");
 			return true;
 		}
 
@@ -139,7 +140,7 @@ public class PersonTUI implements IObserver, Plugin {
 
 		@Override
 		public String getDescription() {
-			return "print commands";
+			return "save person id";
 		}
 	}
 	
@@ -153,6 +154,19 @@ public class PersonTUI implements IObserver, Plugin {
 		@Override
 		public String getDescription() {
 			return "set first name";
+		}
+	}
+	
+	private class PrintPersonCommand implements TuiCommand {
+		@Override
+		public boolean execute(Scanner arguments) {
+			System.out.printf(controller.getPersonString(personId) + "%n");
+			return true;
+		}
+
+		@Override
+		public String getDescription() {
+			return "print person";
 		}
 	}
 	

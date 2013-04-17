@@ -15,7 +15,10 @@ public class PersonHashMapDatabase implements IPersonDatabase {
 	@Override
 	public String newPerson() {
 		IPerson person = new Person(personId);
-		return person.getId();
+		personId++;
+		String tId = person.getId();
+		database.put(tId, person);
+		return tId;
 	}
 	
 	@Override

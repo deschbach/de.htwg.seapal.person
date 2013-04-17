@@ -22,7 +22,10 @@ public class PersonDb4oDatabase implements IPersonDatabase {
 	@Override
 	public String newPerson() {
 		IPerson person = new Person(personId);
-		return person.getId();
+		personId++;
+		String tId = person.getId();
+		savePerson(person);
+		return tId;
 	}
 	
 	@Override
