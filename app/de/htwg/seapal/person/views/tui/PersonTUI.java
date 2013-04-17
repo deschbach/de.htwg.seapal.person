@@ -1,5 +1,6 @@
 package de.htwg.seapal.person.views.tui;
 
+import java.io.PrintStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,6 +20,7 @@ public class PersonTUI implements IObserver, Plugin {
 	private IPersonController controller;
 	private Map<Character, TuiCommand> commands;
 	private String personId = null;
+	private PrintStream consoleUi = System.out;
 	
 	public PersonTUI(IPersonController controller) {
 		this.controller = controller;
@@ -50,7 +52,7 @@ public class PersonTUI implements IObserver, Plugin {
 	
 	@Override
 	public void update(Event e) {
-		System.out.printf("Current person: %n");
+		consoleUi.printf("Current person: %n");
 		(new PrintPersonCommand()).execute(null);
 	}
 	
@@ -82,7 +84,7 @@ public class PersonTUI implements IObserver, Plugin {
 	
 	@Override
 	public void printTUI() {
-		System.out.printf("%nCommand (h for help): ");
+		consoleUi.printf("%nCommand (h for help): ");
 	}
 
 	@Override
@@ -106,9 +108,9 @@ public class PersonTUI implements IObserver, Plugin {
 		@Override
 		public boolean execute(Scanner arguments) {
 			for (Entry<Character, TuiCommand> command : commands.entrySet()) {
-				System.out.printf(command.getKey() + " - " + command.getValue().getDescription() +  "%n");
+				consoleUi.printf(command.getKey() + " - " + command.getValue().getDescription() +  "%n");
 			}
-			System.out.printf("Exmaple:%n> x%n> i PERSON-0%n> f Max%n> l Mustermann%n> d%n");
+			consoleUi.printf("Exmaple:%n> x%n> i PERSON-0%n> f Max%n> l Mustermann%n> d%n");
 			return true;
 		}
 
@@ -160,7 +162,7 @@ public class PersonTUI implements IObserver, Plugin {
 	private class PrintPersonCommand implements TuiCommand {
 		@Override
 		public boolean execute(Scanner arguments) {
-			System.out.printf(controller.getPersonString(personId) + "%n");
+			consoleUi.printf(controller.getPersonString(personId) + "%n");
 			return true;
 		}
 
@@ -329,7 +331,7 @@ public class PersonTUI implements IObserver, Plugin {
 	private class AddPersonCommand implements TuiCommand {
 		@Override
 		public boolean execute(Scanner arguments) {
-			System.out.printf("New person id: %s %n", controller.addPerson());
+			consoleUi.printf("New person id: %s %n", controller.addPerson());
 			return true;
 		}
 

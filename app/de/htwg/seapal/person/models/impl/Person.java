@@ -34,7 +34,7 @@ public class Person extends AbstractPerson {
 	}
 	
 	public String getId() {
-		return "PERSON-" + String.valueOf(id);
+		return "PERSON-" + id;
 	}
 	
 	public String getFirstname() {
