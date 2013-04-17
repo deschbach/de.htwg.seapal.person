@@ -3,6 +3,7 @@ package de.htwg.seapal.person.models;
 import java.text.SimpleDateFormat;
 
 public abstract class AbstractPerson implements IPerson {
+	
 
 	public String getString() {
 		

@@ -74,7 +74,7 @@ public class PersonTUI implements IObserver, Plugin {
 				continu = tcmd.execute(scanner);
 			}
 		} catch (Exception ex) {
-			ex.getMessage();
+			consoleUi.print(ex.getStackTrace());
 		} finally {
 			scanner.close();
 			scanner = null;

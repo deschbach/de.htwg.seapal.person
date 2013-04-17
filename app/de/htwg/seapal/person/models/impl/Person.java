@@ -2,17 +2,24 @@ package de.htwg.seapal.person.models.impl;
 
 import java.util.Date;
 
-import de.htwg.seapal.person.models.AbstractPerson;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+import de.htwg.seapal.person.models.AbstractPerson;
+import de.htwg.seapal.person.models.IPerson;
+
+@Entity
 public class Person extends AbstractPerson {
 	
-	private long id = -1;
+	@Id
+	private String id;
 	
 	private String firstname = null;
 	private String lastname= null;
 
-	private Date birth = new Date();
-	private Date registration = new Date();
+	
+	private Date birth;
+	private Date registration;
 	private int age = 0;
 	private String nationality = null;
 	
@@ -29,12 +36,32 @@ public class Person extends AbstractPerson {
 		
 	}
 	
+	public Person(IPerson person) {
+		id = person.getId();
+		
+		firstname = person.getFirstname();
+		lastname = person.getLastname();
+		birth = person.getBirth();
+		registration = person.getRegistration();
+		age = person.getAge();
+		nationality = person.getNationality();
+		
+		email = person.getEmail();
+		telephone = person.getTelephone();
+		mobile = person.getMobile();
+		
+		street = person.getStreet();
+		postcode = person.getPostcode();
+		city = person.getCity();
+		country = person.getCountry();
+	}
+	
 	public Person(int id) {
-		this.id = id;
+		this.id = "PERSON-" + id;
 	}
 	
 	public String getId() {
-		return "PERSON-" + id;
+		return id;
 	}
 	
 	public String getFirstname() {
