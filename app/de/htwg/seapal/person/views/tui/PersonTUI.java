@@ -8,9 +8,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import de.htwg.util.plugin.Plugin;
 import de.htwg.seapal.person.controllers.IPersonController;
 import de.htwg.seapal.person.util.observer.Event;
@@ -22,8 +19,6 @@ public class PersonTUI implements IObserver, Plugin {
 	private IPersonController controller;
 	private Map<Character, TuiCommand> commands;
 	private String personId = "PERSON-1";
-	
-	final static Logger LOGGER = LoggerFactory.getLogger(PersonTUI.class);
 	
 	public PersonTUI(IPersonController controller) {
 		this.controller = controller;
@@ -68,7 +63,7 @@ public class PersonTUI implements IObserver, Plugin {
 			char command = line.charAt(0);
 			TuiCommand tcmd = commands.get(command);
 			if (tcmd == null) {
-				LOGGER.error("Unknown Command! Pleas try again ...");
+				throw new IllegalArgumentException("Unknown Command! Pleas try again ...");
 			} else {
 				continu = tcmd.execute(scanner);
 			}
@@ -84,9 +79,9 @@ public class PersonTUI implements IObserver, Plugin {
 	
 	@Override
 	public void printTUI() {
-		LOGGER.info("PersonDemo: %n");
+		System.out.println("PersonDemo: %n");
 		(new PrintCommandsCommand()).execute(null);
-		LOGGER.info("%nCommand: ");
+		System.out.print("%nCommand: ");
 	}
 
 	@Override
@@ -110,7 +105,7 @@ public class PersonTUI implements IObserver, Plugin {
 		@Override
 		public boolean execute(Scanner arguments) {
 			for (Entry<Character, TuiCommand> command : commands.entrySet()) {
-				LOGGER.debug(command.getKey() + " - " + command.getValue().getDescription());
+				System.out.println(command.getKey() + " - " + command.getValue().getDescription());
 			}
 			return true;
 		}
