@@ -53,8 +53,6 @@ public class PersonTUI implements IObserver, Plugin {
 	@Override
 	public boolean processInputLine(String line) {
 		
-		String personId = "PERSON-1";
-		
 		boolean continu = true;
 		Scanner scanner = new Scanner(line);
 
@@ -95,9 +93,6 @@ public class PersonTUI implements IObserver, Plugin {
 	public char getMenuKey() {
 		return 'p';
 	}
-	
-	
-	
 	
 	private interface TuiCommand {
 		boolean execute(Scanner arguments);

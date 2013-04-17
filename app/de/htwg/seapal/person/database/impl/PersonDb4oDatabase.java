@@ -11,7 +11,7 @@ import de.htwg.seapal.person.models.IPerson;
 
 public class PersonDb4oDatabase implements IPersonDatabase {
 
-	ObjectContainer db;
+	private ObjectContainer db;
 	
 	public PersonDb4oDatabase() {
 		db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(),"person.data");
@@ -24,7 +24,10 @@ public class PersonDb4oDatabase implements IPersonDatabase {
 
 	@Override
 	public boolean containsPerson(String personId) {
-		if(getPersonById(personId) == null) {
+		
+		IPerson person = getPersonById(personId);
+		
+		if (person == null) {
 			return false;			
 		} else {
 			return true;
@@ -43,11 +46,9 @@ public class PersonDb4oDatabase implements IPersonDatabase {
 			}
 		});
 		
-		if(persons.isEmpty()) {
+		if (persons.isEmpty()) {
 			return null;			
-		} else if(persons.size() > 1) {
-			// TODO Handle it in here ?
-		}
+		} 
 		return persons.get(0);
 	}
 
