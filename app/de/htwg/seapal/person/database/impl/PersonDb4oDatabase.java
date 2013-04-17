@@ -8,13 +8,21 @@ import com.db4o.query.Predicate;
 
 import de.htwg.seapal.person.database.IPersonDatabase;
 import de.htwg.seapal.person.models.IPerson;
+import de.htwg.seapal.person.models.impl.Person;
 
 public class PersonDb4oDatabase implements IPersonDatabase {
 
 	private ObjectContainer db;
+	private int personId = 0;
 	
 	public PersonDb4oDatabase() {
 		db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(),"person.data");
+	}
+	
+	@Override
+	public String newPerson() {
+		IPerson person = new Person(personId);
+		return person.getId();
 	}
 	
 	@Override
@@ -53,5 +61,7 @@ public class PersonDb4oDatabase implements IPersonDatabase {
 	public void closeDb() {
 		db.close();
 	}
+
+	
 
 }

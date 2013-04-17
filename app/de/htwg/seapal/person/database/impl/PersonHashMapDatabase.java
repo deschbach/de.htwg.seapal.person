@@ -5,10 +5,18 @@ import java.util.Map;
 
 import de.htwg.seapal.person.database.IPersonDatabase;
 import de.htwg.seapal.person.models.IPerson;
+import de.htwg.seapal.person.models.impl.Person;
 
 public class PersonHashMapDatabase implements IPersonDatabase {
 
 	private Map<String, IPerson> database = new HashMap<String, IPerson>();
+	private int personId;
+	
+	@Override
+	public String newPerson() {
+		IPerson person = new Person(personId);
+		return person.getId();
+	}
 	
 	@Override
 	public IPerson getPersonById(String personId) {

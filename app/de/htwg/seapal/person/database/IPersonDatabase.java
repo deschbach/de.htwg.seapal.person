@@ -4,6 +4,8 @@ import de.htwg.seapal.person.models.IPerson;
 
 public interface IPersonDatabase {
 	
+	String newPerson();
+	
 	void savePerson(IPerson person);
 	
 	boolean containsPerson(String peronId);

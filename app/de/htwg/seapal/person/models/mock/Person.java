@@ -13,8 +13,6 @@ public class Person extends AbstractPerson {
 		return "PERSON-1";
 	}
 	
-	public void setId() {
-	}
 	
 	public String getFirstname() {
 		return "Max";
@@ -105,6 +103,5 @@ public class Person extends AbstractPerson {
 	}
 	
 	public void setCountry(String country) {
-	}
-	
+	}	
 }

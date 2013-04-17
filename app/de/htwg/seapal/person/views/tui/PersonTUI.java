@@ -43,6 +43,7 @@ public class PersonTUI implements IObserver, Plugin {
 		commands.put('p', new SetPersonPostcodeCommand());
 		commands.put('c', new SetPersonCityCommand());
 		commands.put('o', new SetPersonCountryCommand());
+		commands.put('i', new SavePersonIdCommand());
 	}
 	
 	@Override
@@ -79,9 +80,9 @@ public class PersonTUI implements IObserver, Plugin {
 	
 	@Override
 	public void printTUI() {
-		System.out.println("PersonDemo: %n");
+		System.out.printf("PersonDemo: %n");
 		(new PrintCommandsCommand()).execute(null);
-		System.out.print("%nCommand: ");
+		System.out.printf("%nCommand: ");
 	}
 
 	@Override
@@ -125,6 +126,20 @@ public class PersonTUI implements IObserver, Plugin {
 		@Override
 		public String getDescription() {
 			return "quit program";
+		}
+	}
+	
+	private class SavePersonIdCommand implements TuiCommand {
+
+		@Override
+		public boolean execute(Scanner arguments) {
+			personId = arguments.next();
+			return true;
+		}
+
+		@Override
+		public String getDescription() {
+			return "print commands";
 		}
 	}
 	
@@ -300,7 +315,7 @@ public class PersonTUI implements IObserver, Plugin {
 	private class AddPersonCommand implements TuiCommand {
 		@Override
 		public boolean execute(Scanner arguments) {
-			controller.addPerson();
+			System.out.printf("New person id: %s %n", controller.addPerson());
 			return true;
 		}
 

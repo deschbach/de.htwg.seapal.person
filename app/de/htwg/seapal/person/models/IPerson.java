@@ -5,7 +5,6 @@ import java.util.Date;
 public interface IPerson {
 	
 	String getId();
-	void setId(String id);
 
 	String getFirstname();
 	void setFirstname(String firstname);

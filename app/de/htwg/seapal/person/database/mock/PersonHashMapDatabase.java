@@ -22,4 +22,9 @@ public class PersonHashMapDatabase implements IPersonDatabase {
 		return true;
 	}
 
+	@Override
+	public String newPerson() {
+		return (new Person()).getId();
+	}
+
 }

@@ -9,7 +9,7 @@ public interface IPersonController extends IObservable{
 	
 	Map<String,String> getPersonList();
 	
-	void addPerson();
+	String addPerson();
 	
 	String getPersonFirstname(String personId);
 	void setPersonFirstname(String personId, String firstname);
