@@ -84,9 +84,9 @@ public class PersonTUI implements IObserver, Plugin {
 	
 	@Override
 	public void printTUI() {
-		LOGGER.debug("PersonDemo: %n");
+		LOGGER.info("PersonDemo: %n");
 		(new PrintCommandsCommand()).execute(null);
-		LOGGER.debug("%nCommand: ");
+		LOGGER.info("%nCommand: ");
 	}
 
 	@Override
