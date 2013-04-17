@@ -3,18 +3,23 @@ package de.htwg.seapal.person.controllers;
 import java.util.Date;
 
 import de.htwg.seapal.person.models.IPerson;
-import de.htwg.seapal.boat.controllers.IBoatController;
 import de.htwg.seapal.person.database.IPersonDatabase;
 import de.htwg.seapal.person.util.observer.Observable;
 
 
 public abstract class AbstractPersonController extends Observable implements IPersonController {
 
-	protected IPersonDatabase database;
+	private IPerson person;
+
+	private IPersonDatabase database;
 	
-	protected IPerson person;
-	
-	protected IBoatController boatController;
+	public IPerson getPerson() {
+		return person;
+	}
+
+	public void setPerson(IPerson person) {
+		this.person = person;
+	}
 	
 	@Override
 	public String getPersonFirstname(String personId) {	
