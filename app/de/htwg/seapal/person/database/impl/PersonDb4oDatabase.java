@@ -23,15 +23,8 @@ public class PersonDb4oDatabase implements IPersonDatabase {
 	}
 
 	@Override
-	public boolean containsPerson(String personId) {
-		
-		IPerson person = getPersonById(personId);
-		
-		if (person == null) {
-			return false;			
-		} else {
-			return true;
-		}
+	public boolean containsPerson(String personId) {	
+		return (getPersonById(personId) == null) ? false : true;
 	}
 
 	@Override
