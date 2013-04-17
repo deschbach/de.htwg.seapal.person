@@ -14,7 +14,7 @@ public class PersonDemoMockModule extends AbstractModule {
 	protected void configure() {
 		bind(IPerson.class).to(de.htwg.seapal.person.models.mock.Person.class);
 		bind(IPersonController.class).to(de.htwg.seapal.person.controllers.mock.PersonController.class);	
-		bind(IPersonDatabase.class).to(de.htwg.seapal.person.database.mock.PersonHashMapDatabase.class);
+		bind(IPersonDatabase.class).to(de.htwg.seapal.person.database.mock.PersonDatabase.class);
 	}
 
 }

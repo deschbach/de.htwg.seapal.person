@@ -4,7 +4,7 @@ import de.htwg.seapal.person.database.IPersonDatabase;
 import de.htwg.seapal.person.models.IPerson;
 import de.htwg.seapal.person.models.mock.Person;
 
-public class PersonHashMapDatabase implements IPersonDatabase {
+public class PersonDatabase implements IPersonDatabase {
 
 	@Override
 	public IPerson getPersonById(String personId) {
