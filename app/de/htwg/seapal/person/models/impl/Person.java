@@ -2,7 +2,10 @@ package de.htwg.seapal.person.models.impl;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import de.htwg.seapal.person.models.AbstractPerson;
@@ -11,25 +14,46 @@ import de.htwg.seapal.person.models.IPerson;
 @Entity
 public class Person extends AbstractPerson {
 	
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.AUTO) 
 	private String id;
 	
+	@Column
 	private String firstname = null;
+	
+	@Column
 	private String lastname= null;
 
-	
+	@Column
 	private Date birth;
+	
+	@Column
 	private Date registration;
+	
+	@Column
 	private int age = 0;
+	
+	@Column
 	private String nationality = null;
 	
+	@Column
 	private String email = null;
+	
+	@Column
 	private String telephone = null;
+	
+	@Column
 	private String mobile = null;
 	
+	@Column
 	private String street = null;
+	
+	@Column
 	private int postcode = 0;
+	
+	@Column
 	private String city = null;
+	
+	@Column
 	private String country = null;
 	
 	public Person() {
