@@ -7,7 +7,7 @@ import JacocoPlugin._
 object ApplicationBuild extends Build {
 
 	val appName         = "person"
-  	val appVersion      = "1.0-SNAPSHOT"
+  	val appVersion      = "1.1-SNAPSHOT"
 
 	// JaCoco settings  
   	lazy val jacocoSettings = Defaults.defaultSettings ++ Seq(jacoco.settings:_*)
