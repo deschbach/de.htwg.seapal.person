@@ -9,7 +9,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 
-import de.htwg.util.plugin.Plugin;
+import com.google.inject.Inject;
+
+import de.htwg.seapal.common.plugin.Plugin;
 import de.htwg.seapal.person.controllers.IPersonController;
 import de.htwg.seapal.person.util.observer.Event;
 import de.htwg.seapal.person.util.observer.IObserver;
@@ -22,6 +24,7 @@ public class PersonTUI implements IObserver, Plugin {
 	private String personId = null;
 	private PrintStream consoleUi = System.out;
 	
+	@Inject
 	public PersonTUI(IPersonController controller) {
 		this.controller = controller;
 		controller.addObserver(this);
