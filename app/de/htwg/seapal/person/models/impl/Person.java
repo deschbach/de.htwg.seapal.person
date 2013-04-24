@@ -16,7 +16,7 @@ public class Person extends AbstractPerson {
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO) 
 	private String id;
-	
+
 	@Column
 	private String firstname = null;
 	
@@ -86,6 +86,10 @@ public class Person extends AbstractPerson {
 	
 	public String getId() {
 		return id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 	public String getFirstname() {
