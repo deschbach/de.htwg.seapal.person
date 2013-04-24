@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.google.inject.Singleton;
-import de.htwg.seapal.person.util.observer.Observable;
 import de.htwg.seapal.person.controllers.IPersonController;
+import de.htwg.seapal.common.observer.Observable;
 
 @Singleton
 public class PersonController extends Observable implements IPersonController {

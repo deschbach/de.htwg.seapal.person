@@ -17,6 +17,7 @@ object ApplicationBuild extends Build {
     	javaJdbc,
     	javaEbean,
     	"de.htwg.seapal" % "common" % "1.0-SNAPSHOT",
+    	"de.htwg.seapal" % "common" % "1.0-SNAPSHOT",
     	"com.google.inject" % "guice" % "3.0",
     	"com.google.inject.extensions" % "guice-multibindings" % "3.0",
     	"com.db4o" % "db4o-full-java5" % "8.1-SNAPSHOT"
