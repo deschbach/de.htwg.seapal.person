@@ -18,3 +18,4 @@ dist
 /.settings
 *.class
 /.target
+/person.data
