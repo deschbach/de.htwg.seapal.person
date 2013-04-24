@@ -3,9 +3,9 @@ package de.htwg.seapal.person.controllers;
 import java.util.Date;
 import java.util.Map;
 
-import de.htwg.seapal.person.util.observer.IObservable;
+import de.htwg.seapal.common.observer.IObservable;
 
-public interface IPersonController extends IObservable{
+public interface IPersonController extends IObservable {
 	
 	Map<String,String> getPersonList();
 	

@@ -9,10 +9,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 
-import de.htwg.util.plugin.Plugin;
+import de.htwg.seapal.common.observer.Event;
+import de.htwg.seapal.common.observer.IObserver;
+import de.htwg.seapal.common.plugin.Plugin;
 import de.htwg.seapal.person.controllers.IPersonController;
-import de.htwg.seapal.person.util.observer.Event;
-import de.htwg.seapal.person.util.observer.IObserver;
 
 
 public class PersonTUI implements IObserver, Plugin {
