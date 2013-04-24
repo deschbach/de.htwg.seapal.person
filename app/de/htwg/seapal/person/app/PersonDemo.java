@@ -1,8 +1,14 @@
 package de.htwg.seapal.person.app;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import play.api.Application;
+import play.api.DefaultApplication;
+import play.api.Mode;
+import play.api.Play;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -22,6 +28,10 @@ public final class PersonDemo {
 	 */
 	public static void main(String[] args) throws IOException {
 		
+		Application play = new DefaultApplication(new File("."),
+				PersonDemo.class.getClassLoader(), null, Mode.Dev());
+		Play.start(play);
+		
 		// Set up Google Guice DI
 		Injector injector = Guice.createInjector(new PersonDemoImplModule());
 		
@@ -39,6 +49,8 @@ public final class PersonDemo {
 		while (continu) {
 			continu = tui.processInputLine(br.readLine());
 		}
+		
+		Play.stop();
 	}
 
 }

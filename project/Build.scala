@@ -7,7 +7,7 @@ import JacocoPlugin._
 object ApplicationBuild extends Build {
 
 	val appName         = "person"
-  	val appVersion      = "1.0-SNAPSHOT"
+  	val appVersion      = "1.1-SNAPSHOT"
 
 	// JaCoco settings  
   	lazy val jacocoSettings = Defaults.defaultSettings ++ Seq(jacoco.settings:_*)
@@ -16,9 +16,8 @@ object ApplicationBuild extends Build {
     	javaCore,
     	javaJdbc,
     	javaEbean,
-    	"de.htwg" % "util" % "1.0-SNAPSHOT",
     	"de.htwg.seapal" % "common" % "1.0-SNAPSHOT",
-    	"de.htwg.seapal" % "boat" % "1.0-SNAPSHOT",
+    	"de.htwg.seapal" % "common" % "1.0-SNAPSHOT",
     	"com.google.inject" % "guice" % "3.0",
     	"com.google.inject.extensions" % "guice-multibindings" % "3.0",
     	"com.db4o" % "db4o-full-java5" % "8.1-SNAPSHOT"

@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 
+import com.google.inject.Inject;
+
 import de.htwg.seapal.common.observer.Event;
 import de.htwg.seapal.common.observer.IObserver;
 import de.htwg.seapal.common.plugin.Plugin;
@@ -22,6 +24,7 @@ public class PersonTUI implements IObserver, Plugin {
 	private String personId = null;
 	private PrintStream consoleUi = System.out;
 	
+	@Inject
 	public PersonTUI(IPersonController controller) {
 		this.controller = controller;
 		controller.addObserver(this);
@@ -74,7 +77,7 @@ public class PersonTUI implements IObserver, Plugin {
 				continu = tcmd.execute(scanner);
 			}
 		} catch (Exception ex) {
-			consoleUi.print(ex.getStackTrace());
+			consoleUi.print(ex.getMessage());
 		} finally {
 			scanner.close();
 			scanner = null;
