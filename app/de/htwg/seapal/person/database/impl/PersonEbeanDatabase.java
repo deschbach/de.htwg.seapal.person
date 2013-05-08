@@ -18,7 +18,7 @@ public class PersonEbeanDatabase implements IPersonDatabase {
 	@Override
 	public void savePerson(IPerson person) {
 		Person tPers = new Person(person);
-		Ebean.save(tPers);
+		Ebean.update(tPers);
 	}
 
 	@Override
@@ -28,12 +28,21 @@ public class PersonEbeanDatabase implements IPersonDatabase {
 
 	@Override
 	public IPerson getPersonById(String personId) {
-		return Ebean.find(Person.class, personId);
+		return Ebean.find(Person.class, getInternalId(personId));
 	}
 
 	@Override
 	public void deletePersonById(String personId) {
-		Ebean.delete(Person.class, personId);
+		Ebean.delete(Person.class, getInternalId(personId));
+	}
+	
+	private long getInternalId(String personId) {
+		int tIndex = personId.indexOf('-');
+		if (tIndex == -1) {
+			throw new IllegalArgumentException(
+					"The person entity id must have the format PERSON-0. No - found.");
+		}
+		return Long.parseLong(personId.substring(tIndex + 1));
 	}
 	
 	

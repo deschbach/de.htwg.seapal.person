@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 
 import javax.persistence.MappedSuperclass;
 
+
 @MappedSuperclass
 public abstract class AbstractPerson implements IPerson {
 	

@@ -31,10 +31,10 @@ public class Person extends AbstractPerson {
 		}
 	}
 	
+	@Override
 	public String getId() {
 		return PERSONID;
 	}
-	
 	
 	public String getFirstname() {
 		return FIRSTNAME;
@@ -125,5 +125,7 @@ public class Person extends AbstractPerson {
 	}
 	
 	public void setCountry(String country) {
-	}	
+	}
+
+	
 }
