@@ -14,6 +14,7 @@ public class PersonTUI implements IObserver, Plugin {
 	private TuiState tuiState;
 	
 	private PrintStream consoleUi = System.out;
+	 
 
 	@Inject
 	public PersonTUI(IPersonController controller) {

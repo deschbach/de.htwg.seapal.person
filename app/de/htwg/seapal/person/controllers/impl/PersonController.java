@@ -14,6 +14,7 @@ import de.htwg.seapal.common.observer.Observable;
 @Singleton
 public class PersonController extends Observable implements IPersonController {
 	
+	
 	@Inject
 	private IPersonDatabase database;
 
