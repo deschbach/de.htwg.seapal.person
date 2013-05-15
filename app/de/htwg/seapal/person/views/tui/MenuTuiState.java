@@ -1,6 +1,7 @@
 package de.htwg.seapal.person.views.tui;
 
 import java.io.PrintStream;
+import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -39,7 +40,13 @@ class MenuTuiState implements TuiState {
 			consoleUi.printf("Unknown Command! Pleas try again ... %n");
 			return this;
 		}
-		return tcmd.execute(new Scanner(input.substring(1)));
+		TuiState tSt = this;
+		try {
+			tcmd.execute(new Scanner(input.substring(1)));
+		} catch (RemoteException ex) {
+			ex.printStackTrace();
+		}
+		return tSt;
 	}
 	
 	
@@ -72,7 +79,7 @@ class MenuTuiState implements TuiState {
 
 	private class AddPersonCommand implements MenuTuiCommand {
 		@Override
-		public TuiState execute(Scanner arguments) {
+		public TuiState execute(Scanner arguments) throws RemoteException {
 			String persId = controller.addPerson();
 			consoleUi.printf("New person id: %s %n", persId);
 			return new EditPersonTuiState(MenuTuiState.this.controller, persId);

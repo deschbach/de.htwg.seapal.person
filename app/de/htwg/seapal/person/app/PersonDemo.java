@@ -37,7 +37,7 @@ public final class PersonDemo {
 				PersonDemo.class.getClassLoader(), null, Mode.Dev());
 		Play.start(play);
 		
-		System.setProperty("java.rmi.server.codebase", "file:C:\\Studium\\Webtech\\eclipse\\de.htwg.seapal.person\\target\\classes");
+		//System.setProperty("java.rmi.server.codebase", "file:C:\\Studium\\Webtech\\eclipse\\de.htwg.seapal.person\\target\\classes");
 		
 		// Set up Google Guice DI
 		Injector injector = Guice.createInjector(new PersonDemoImplModule());
@@ -47,7 +47,7 @@ public final class PersonDemo {
 		
 		// create remote controller
 		Registry localeReg = LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
-		IPersonController controllerStub = (IPersonController) UnicastRemoteObject.exportObject(controller);
+		IPersonController controllerStub = (IPersonController) UnicastRemoteObject.exportObject(controller, 0);
 		localeReg.rebind("PersonController", controllerStub);
 
 		// Get remote controller

@@ -1,5 +1,6 @@
 package de.htwg.seapal.person.views.tui;
 
+import java.rmi.RemoteException;
 import java.util.Scanner;
 
 interface TuiState {
@@ -11,9 +12,9 @@ interface TuiCommand {
 }
 
 interface TuiEditAttributeCommand extends TuiCommand {
-	TuiState execute(String personId, String value);
+	TuiState execute(String personId, String value) throws RemoteException;
 }
 
 interface MenuTuiCommand extends TuiCommand {
-	TuiState execute(Scanner arguments);
+	TuiState execute(Scanner arguments) throws RemoteException;
 }

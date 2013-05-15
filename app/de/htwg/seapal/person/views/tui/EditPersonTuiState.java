@@ -1,6 +1,7 @@
 package de.htwg.seapal.person.views.tui;
 
 import java.io.PrintStream;
+import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -54,14 +55,20 @@ class EditPersonTuiState implements TuiState {
 			consoleUi.printf("Unknown Command! Pleas try again ... %n");
 			return this;
 		}
-		return tcmd.execute(personId, input.substring(1));
+		TuiState tSt = this;
+		try {
+			tcmd.execute(personId, input.substring(1));
+		} catch (RemoteException ex) {
+			ex.printStackTrace();
+		}
+		return tSt;
 	}
 	
 	
 	
 	private class SetPersonFirstNameCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) {
+		public TuiState execute(String personId, String value) throws RemoteException {
 			controller.setPersonFirstname(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -74,7 +81,7 @@ class EditPersonTuiState implements TuiState {
 	
 	private class SetPersonLastNameCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) {
+		public TuiState execute(String personId, String value) throws RemoteException {
 			controller.setPersonLastname(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -87,7 +94,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonBirthCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) {
+		public TuiState execute(String personId, String value) throws RemoteException {
 			controller.setPersonBirth(personId, parseDate(value));
 			return EditPersonTuiState.this;
 		}
@@ -100,7 +107,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonAgeCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) {
+		public TuiState execute(String personId, String value) throws NumberFormatException, RemoteException {
 			controller.setPersonAge(personId, Integer.parseInt(value));
 			return EditPersonTuiState.this;
 		}
@@ -113,7 +120,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonRegistrationCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) {
+		public TuiState execute(String personId, String value) throws RemoteException {
 			controller.setPersonRegistration(personId, parseDate(value));
 			return EditPersonTuiState.this;
 		}
@@ -126,7 +133,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonNationalityCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) {
+		public TuiState execute(String personId, String value) throws RemoteException {
 			controller.setPersonNationality(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -139,7 +146,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonEmailCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) {
+		public TuiState execute(String personId, String value) throws RemoteException {
 			controller.setPersonEmail(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -152,7 +159,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonTelephoneCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) {
+		public TuiState execute(String personId, String value) throws RemoteException {
 			controller.setPersonTelephone(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -165,7 +172,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonMobileCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) {
+		public TuiState execute(String personId, String value) throws RemoteException {
 			controller.setPersonMobile(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -178,7 +185,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonStreetCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) {
+		public TuiState execute(String personId, String value) throws RemoteException {
 			controller.setPersonStreet(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -191,7 +198,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonPostcodeCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) {
+		public TuiState execute(String personId, String value) throws NumberFormatException, RemoteException {
 			controller.setPersonPostcode(personId, Integer.parseInt(value));
 			return EditPersonTuiState.this;
 		}
@@ -204,7 +211,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonCityCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) {
+		public TuiState execute(String personId, String value) throws RemoteException {
 			controller.setPersonCity(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -217,7 +224,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonCountryCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) {
+		public TuiState execute(String personId, String value) throws RemoteException {
 			controller.setPersonCountry(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -230,7 +237,7 @@ class EditPersonTuiState implements TuiState {
 	
 	private class PrintPersonCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) {
+		public TuiState execute(String personId, String value) throws RemoteException {
 			System.out.printf(controller.getPersonString(personId) + "%n");
 			return EditPersonTuiState.this;
 		}
