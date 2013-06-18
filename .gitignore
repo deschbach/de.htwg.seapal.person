@@ -19,3 +19,5 @@ dist
 *.class
 /.target
 /person.data
+.metadata/
+

@@ -1,7 +1,6 @@
 package de.htwg.seapal.person.views.tui;
 
 import java.io.PrintStream;
-import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -41,11 +40,9 @@ class MenuTuiState implements TuiState {
 			return this;
 		}
 		TuiState tSt = this;
-		try {
-			tcmd.execute(new Scanner(input.substring(1)));
-		} catch (RemoteException ex) {
-			ex.printStackTrace();
-		}
+		
+		tcmd.execute(new Scanner(input.substring(1)));
+
 		return tSt;
 	}
 	
@@ -79,7 +76,7 @@ class MenuTuiState implements TuiState {
 
 	private class AddPersonCommand implements MenuTuiCommand {
 		@Override
-		public TuiState execute(Scanner arguments) throws RemoteException {
+		public TuiState execute(Scanner arguments) {
 			String persId = controller.addPerson();
 			consoleUi.printf("New person id: %s %n", persId);
 			return new EditPersonTuiState(MenuTuiState.this.controller, persId);

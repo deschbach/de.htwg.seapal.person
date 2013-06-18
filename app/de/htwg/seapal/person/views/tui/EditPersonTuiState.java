@@ -1,7 +1,6 @@
 package de.htwg.seapal.person.views.tui;
 
 import java.io.PrintStream;
-import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -56,11 +55,9 @@ class EditPersonTuiState implements TuiState {
 			return this;
 		}
 		TuiState tSt = this;
-		try {
-			tcmd.execute(personId, input.substring(1));
-		} catch (RemoteException ex) {
-			ex.printStackTrace();
-		}
+
+		tcmd.execute(personId, input.substring(1));
+
 		return tSt;
 	}
 	
@@ -68,7 +65,7 @@ class EditPersonTuiState implements TuiState {
 	
 	private class SetPersonFirstNameCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws RemoteException {
+		public TuiState execute(String personId, String value) {
 			controller.setPersonFirstname(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -81,7 +78,7 @@ class EditPersonTuiState implements TuiState {
 	
 	private class SetPersonLastNameCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws RemoteException {
+		public TuiState execute(String personId, String value) {
 			controller.setPersonLastname(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -94,7 +91,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonBirthCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws RemoteException {
+		public TuiState execute(String personId, String value) {
 			controller.setPersonBirth(personId, parseDate(value));
 			return EditPersonTuiState.this;
 		}
@@ -107,7 +104,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonAgeCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws NumberFormatException, RemoteException {
+		public TuiState execute(String personId, String value) throws NumberFormatException {
 			controller.setPersonAge(personId, Integer.parseInt(value));
 			return EditPersonTuiState.this;
 		}
@@ -120,7 +117,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonRegistrationCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws RemoteException {
+		public TuiState execute(String personId, String value) {
 			controller.setPersonRegistration(personId, parseDate(value));
 			return EditPersonTuiState.this;
 		}
@@ -133,7 +130,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonNationalityCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws RemoteException {
+		public TuiState execute(String personId, String value) {
 			controller.setPersonNationality(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -146,7 +143,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonEmailCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws RemoteException {
+		public TuiState execute(String personId, String value) {
 			controller.setPersonEmail(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -159,7 +156,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonTelephoneCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws RemoteException {
+		public TuiState execute(String personId, String value) {
 			controller.setPersonTelephone(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -172,7 +169,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonMobileCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws RemoteException {
+		public TuiState execute(String personId, String value) {
 			controller.setPersonMobile(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -185,7 +182,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonStreetCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws RemoteException {
+		public TuiState execute(String personId, String value) {
 			controller.setPersonStreet(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -198,7 +195,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonPostcodeCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws NumberFormatException, RemoteException {
+		public TuiState execute(String personId, String value) throws NumberFormatException {
 			controller.setPersonPostcode(personId, Integer.parseInt(value));
 			return EditPersonTuiState.this;
 		}
@@ -211,7 +208,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonCityCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws RemoteException {
+		public TuiState execute(String personId, String value) {
 			controller.setPersonCity(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -224,7 +221,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonCountryCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws RemoteException {
+		public TuiState execute(String personId, String value) {
 			controller.setPersonCountry(personId, value);
 			return EditPersonTuiState.this;
 		}
@@ -237,7 +234,7 @@ class EditPersonTuiState implements TuiState {
 	
 	private class PrintPersonCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws RemoteException {
+		public TuiState execute(String personId, String value) {
 			System.out.printf(controller.getPersonString(personId) + "%n");
 			return EditPersonTuiState.this;
 		}

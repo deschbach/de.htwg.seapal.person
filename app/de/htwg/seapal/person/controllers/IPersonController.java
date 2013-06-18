@@ -1,57 +1,55 @@
 package de.htwg.seapal.person.controllers;
 
-import java.rmi.Remote;
-import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.Map;
 
 import de.htwg.seapal.common.observer.IObservable;
 
-public interface IPersonController extends IObservable, Remote {
+public interface IPersonController extends IObservable {
 	
-	Map<String,String> getPersonList() throws RemoteException;
+	Map<String,String> getPersonList();
 	
-	String addPerson() throws RemoteException;
+	String addPerson();
 	
-	String getPersonFirstname(String personId) throws RemoteException;
-	void setPersonFirstname(String personId, String firstname) throws RemoteException;
+	String getPersonFirstname(String personId);
+	void setPersonFirstname(String personId, String firstname);
 	
-	String getPersonLastname(String personId) throws RemoteException;
-	void setPersonLastname(String personId, String lastname) throws RemoteException;
+	String getPersonLastname(String personId);
+	void setPersonLastname(String personId, String lastname);
 	
-	Date getPersonBirth(String personId) throws RemoteException;
-	void setPersonBirth(String personId, Date birth) throws RemoteException;
+	Date getPersonBirth(String personId);
+	void setPersonBirth(String personId, Date birth);
 	
-	Date getPersonRegistration(String personId) throws RemoteException;
-	void setPersonRegistration(String personId, Date registration) throws RemoteException;
+	Date getPersonRegistration(String personId);
+	void setPersonRegistration(String personId, Date registration);
 	
-	int getPersonAge(String personId) throws RemoteException;
-	void setPersonAge(String personId, int age) throws RemoteException;
+	int getPersonAge(String personId);
+	void setPersonAge(String personId, int age);
 	
-	String getPersonNationality(String personId) throws RemoteException;
-	void setPersonNationality(String personId, String nationality) throws RemoteException;
+	String getPersonNationality(String personId);
+	void setPersonNationality(String personId, String nationality);
 	
-	String getPersonEmail(String personId) throws RemoteException;
-	void setPersonEmail(String personId, String email) throws RemoteException;
+	String getPersonEmail(String personId);
+	void setPersonEmail(String personId, String email);
 	
-	String getPersonTelephone(String personId) throws RemoteException;
-	void setPersonTelephone(String personId, String telephone) throws RemoteException;
+	String getPersonTelephone(String personId);
+	void setPersonTelephone(String personId, String telephone);
 	
-	String getPersonMobile(String personId) throws RemoteException;
-	void setPersonMobile(String personId, String mobile) throws RemoteException;
+	String getPersonMobile(String personId);
+	void setPersonMobile(String personId, String mobile);
 	
-	String getPersonStreet(String personId) throws RemoteException;
-	void setPersonStreet(String personId, String street) throws RemoteException;
+	String getPersonStreet(String personId);
+	void setPersonStreet(String personId, String street);
 	
-	int getPersonPostcode(String personId) throws RemoteException;
-	void setPersonPostcode(String personId, int postcode) throws RemoteException;
+	int getPersonPostcode(String personId);
+	void setPersonPostcode(String personId, int postcode);
 	
-	String getPersonCity(String personId) throws RemoteException;
-	void setPersonCity(String personId, String city) throws RemoteException;
+	String getPersonCity(String personId);
+	void setPersonCity(String personId, String city);
 	
-	String getPersonCountry(String personId) throws RemoteException;
-	void setPersonCountry(String personId, String country) throws RemoteException;
+	String getPersonCountry(String personId);
+	void setPersonCountry(String personId, String country);
 
-	String getPersonString(String personId) throws RemoteException;
+	String getPersonString(String personId);
 	
 }
