@@ -54,11 +54,7 @@ class EditPersonTuiState implements TuiState {
 			consoleUi.printf("Unknown Command! Pleas try again ... %n");
 			return this;
 		}
-		TuiState tSt = this;
-
-		tcmd.execute(personId, input.substring(1));
-
-		return tSt;
+		return tcmd.execute(personId, input.substring(1));
 	}
 	
 	
