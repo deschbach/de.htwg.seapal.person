@@ -46,7 +46,7 @@ class MenuTuiState implements TuiState {
 	private class QuitCommand implements MenuTuiCommand {
 		@Override
 		public TuiState execute(Scanner arguments) {
-			System.out.println("exit");
+			consoleUi.println("exit");
 			return null;
 		}
 

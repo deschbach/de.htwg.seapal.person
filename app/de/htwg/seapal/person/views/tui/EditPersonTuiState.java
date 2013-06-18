@@ -100,7 +100,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonAgeCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws NumberFormatException {
+		public TuiState execute(String personId, String value) {
 			controller.setPersonAge(personId, Integer.parseInt(value));
 			return EditPersonTuiState.this;
 		}
@@ -191,7 +191,7 @@ class EditPersonTuiState implements TuiState {
 
 	private class SetPersonPostcodeCommand implements TuiEditAttributeCommand {
 		@Override
-		public TuiState execute(String personId, String value) throws NumberFormatException {
+		public TuiState execute(String personId, String value) {
 			controller.setPersonPostcode(personId, Integer.parseInt(value));
 			return EditPersonTuiState.this;
 		}
@@ -231,8 +231,8 @@ class EditPersonTuiState implements TuiState {
 	private class PrintPersonCommand implements TuiEditAttributeCommand {
 		@Override
 		public TuiState execute(String personId, String value) {
-			System.out.printf(controller.getPersonString(personId));
-			System.out.println(controller.getPersonBoatsString(personId));
+			consoleUi.print(controller.getPersonString(personId));
+			consoleUi.println(controller.getPersonBoatsString(personId));
 			return EditPersonTuiState.this;
 		}
 

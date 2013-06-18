@@ -24,7 +24,7 @@ public class PersonTUI implements IObserver, Plugin {
 
 	@Override
 	public void update(Event e) {
-		System.out.println("updated");
+		consoleUi.println("updated");
 	}
 
 	@Override
