@@ -38,9 +38,6 @@ public class PersonController extends Observable implements IPersonController {
 		}
 	}
 	
-	@Inject
-	private IBoatController boatController;
-	
 	@Override
 	public String addPerson() {
 		return PERSONID;
