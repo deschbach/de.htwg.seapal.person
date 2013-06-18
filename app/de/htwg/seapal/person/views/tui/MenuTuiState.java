@@ -38,10 +38,8 @@ class MenuTuiState implements TuiState {
 		if (tcmd == null) {
 			consoleUi.printf("Unknown Command! Pleas try again ... %n");
 			return this;
-		}
-		TuiState tSt = this;
-		
-		tcmd.execute(new Scanner(input.substring(1)));
+		}		
+		TuiState tSt = tcmd.execute(new Scanner(input.substring(1)));
 
 		return tSt;
 	}
