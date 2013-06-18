@@ -11,6 +11,9 @@ public interface IPersonController extends IObservable {
 	
 	String addPerson();
 	
+	Map<String, String> getPersonBoats(String personId);
+	String getPersonBoatsString(String personId);
+	
 	String getPersonFirstname(String personId);
 	void setPersonFirstname(String personId, String firstname);
 	

@@ -1,7 +1,9 @@
 package de.htwg.seapal.person.controllers.impl;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -9,6 +11,7 @@ import com.google.inject.Singleton;
 import de.htwg.seapal.person.models.IPerson;
 import de.htwg.seapal.person.controllers.IPersonController;
 import de.htwg.seapal.person.database.IPersonDatabase;
+import de.htwg.seapal.boat.controllers.IBoatController;
 import de.htwg.seapal.common.observer.Observable;
 
 @Singleton
@@ -17,6 +20,9 @@ public class PersonController extends Observable implements IPersonController {
 	
 	@Inject
 	private IPersonDatabase database;
+	
+	@Inject
+	private IBoatController boatController;
 
 	@Override
 	public Map<String, String> getPersonList() {
@@ -335,5 +341,31 @@ public class PersonController extends Observable implements IPersonController {
 		} else {
 			return null;
 		}
+	}
+
+	@Override
+	public Map<String, String> getPersonBoats(String personId) {
+		return boatController.getBoats();
+	}
+
+	@Override
+	public String getPersonBoatsString(String personId) {
+		
+		Map<String, String> boats = new HashMap<String, String>();
+		boats = boatController.getBoats();
+		
+		Set<String> boatIds = boats.keySet();
+		
+		StringBuilder sb = new StringBuilder();
+		
+		for (String id : boatIds) {
+			sb.append("Boat Id: \t");
+			sb.append(id).append("\n");
+			sb.append("Boat Name: \t");
+			sb.append(boats.get(id)).append(" ");
+		}
+		
+		return sb.toString();
+		
 	}
 }

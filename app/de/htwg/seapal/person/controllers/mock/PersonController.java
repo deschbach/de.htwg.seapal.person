@@ -6,8 +6,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import de.htwg.seapal.person.controllers.IPersonController;
+import de.htwg.seapal.boat.controllers.IBoatController;
 import de.htwg.seapal.common.observer.Observable;
 
 @Singleton
@@ -35,6 +37,9 @@ public class PersonController extends Observable implements IPersonController {
 			someDate = null;
 		}
 	}
+	
+	@Inject
+	private IBoatController boatController;
 	
 	@Override
 	public String addPerson() {
@@ -145,6 +150,16 @@ public class PersonController extends Observable implements IPersonController {
 	
 	@Override
 	public String getPersonString(String personId) {
+		return null;
+	}
+
+	@Override
+	public Map<String, String> getPersonBoats(String personId) {
+		return null;
+	}
+
+	@Override
+	public String getPersonBoatsString(String personId) {
 		return null;
 	}
 

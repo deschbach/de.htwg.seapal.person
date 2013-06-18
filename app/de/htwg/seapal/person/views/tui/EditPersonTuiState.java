@@ -231,7 +231,8 @@ class EditPersonTuiState implements TuiState {
 	private class PrintPersonCommand implements TuiEditAttributeCommand {
 		@Override
 		public TuiState execute(String personId, String value) {
-			System.out.printf(controller.getPersonString(personId) + "%n");
+			System.out.printf(controller.getPersonString(personId));
+			System.out.println(controller.getPersonBoatsString(personId));
 			return EditPersonTuiState.this;
 		}
 
